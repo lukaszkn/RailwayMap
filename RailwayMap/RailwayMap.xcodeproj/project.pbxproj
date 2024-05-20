@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B26134152BFB92B700E0233E /* RailwayMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134142BFB92B700E0233E /* RailwayMapApp.swift */; };
+		B26134172BFB92B700E0233E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134162BFB92B700E0233E /* ContentView.swift */; };
+		B26134192BFB92B800E0233E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B26134182BFB92B800E0233E /* Assets.xcassets */; };
+		B261341C2BFB92B800E0233E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B261341B2BFB92B800E0233E /* Preview Assets.xcassets */; };
+		B26134262BFB92B800E0233E /* RailwayMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134252BFB92B800E0233E /* RailwayMapTests.swift */; };
+		B26134302BFB92B900E0233E /* RailwayMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261342F2BFB92B900E0233E /* RailwayMapUITests.swift */; };
+		B26134322BFB92B900E0233E /* RailwayMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134312BFB92B900E0233E /* RailwayMapUITestsLaunchTests.swift */; };
+		B26134412BFB9F9000E0233E /* MapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134402BFB9F9000E0233E /* MapTabView.swift */; };
+		B26134432BFBA07800E0233E /* world-railways.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = B26134422BFBA07800E0233E /* world-railways.mbtiles */; };
+		B26134462BFBA1C500E0233E /* MapLibre in Frameworks */ = {isa = PBXBuildFile; productRef = B26134452BFBA1C500E0233E /* MapLibre */; };
+		B26134482BFBA46E00E0233E /* MapLibreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134472BFBA46E00E0233E /* MapLibreView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B26134222BFB92B800E0233E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B26134092BFB92B700E0233E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B26134102BFB92B700E0233E;
+			remoteInfo = RailwayMap;
+		};
+		B261342C2BFB92B900E0233E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B26134092BFB92B700E0233E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B26134102BFB92B700E0233E;
+			remoteInfo = RailwayMap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B26134112BFB92B700E0233E /* RailwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B26134142BFB92B700E0233E /* RailwayMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailwayMapApp.swift; sourceTree = "<group>"; };
+		B26134162BFB92B700E0233E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B26134182BFB92B800E0233E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B261341B2BFB92B800E0233E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B26134212BFB92B800E0233E /* RailwayMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailwayMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B26134252BFB92B800E0233E /* RailwayMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailwayMapTests.swift; sourceTree = "<group>"; };
+		B261342B2BFB92B900E0233E /* RailwayMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailwayMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B261342F2BFB92B900E0233E /* RailwayMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailwayMapUITests.swift; sourceTree = "<group>"; };
+		B26134312BFB92B900E0233E /* RailwayMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailwayMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B26134402BFB9F9000E0233E /* MapTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabView.swift; sourceTree = "<group>"; };
+		B26134422BFBA07800E0233E /* world-railways.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "world-railways.mbtiles"; sourceTree = "<group>"; };
+		B26134472BFBA46E00E0233E /* MapLibreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLibreView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B261340E2BFB92B700E0233E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B26134462BFBA1C500E0233E /* MapLibre in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B261341E2BFB92B800E0233E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B26134282BFB92B900E0233E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B26134082BFB92B700E0233E = {
+			isa = PBXGroup;
+			children = (
+				B26134132BFB92B700E0233E /* RailwayMap */,
+				B26134242BFB92B800E0233E /* RailwayMapTests */,
+				B261342E2BFB92B900E0233E /* RailwayMapUITests */,
+				B26134122BFB92B700E0233E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B26134122BFB92B700E0233E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B26134112BFB92B700E0233E /* RailwayMap.app */,
+				B26134212BFB92B800E0233E /* RailwayMapTests.xctest */,
+				B261342B2BFB92B900E0233E /* RailwayMapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B26134132BFB92B700E0233E /* RailwayMap */ = {
+			isa = PBXGroup;
+			children = (
+				B261343F2BFB9F7100E0233E /* View */,
+				B261343E2BFB934600E0233E /* Data */,
+				B26134142BFB92B700E0233E /* RailwayMapApp.swift */,
+				B26134162BFB92B700E0233E /* ContentView.swift */,
+				B26134182BFB92B800E0233E /* Assets.xcassets */,
+				B261341A2BFB92B800E0233E /* Preview Content */,
+			);
+			path = RailwayMap;
+			sourceTree = "<group>";
+		};
+		B261341A2BFB92B800E0233E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B261341B2BFB92B800E0233E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B26134242BFB92B800E0233E /* RailwayMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				B26134252BFB92B800E0233E /* RailwayMapTests.swift */,
+			);
+			path = RailwayMapTests;
+			sourceTree = "<group>";
+		};
+		B261342E2BFB92B900E0233E /* RailwayMapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B261342F2BFB92B900E0233E /* RailwayMapUITests.swift */,
+				B26134312BFB92B900E0233E /* RailwayMapUITestsLaunchTests.swift */,
+			);
+			path = RailwayMapUITests;
+			sourceTree = "<group>";
+		};
+		B261343E2BFB934600E0233E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B26134422BFBA07800E0233E /* world-railways.mbtiles */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B261343F2BFB9F7100E0233E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B26134402BFB9F9000E0233E /* MapTabView.swift */,
+				B26134472BFBA46E00E0233E /* MapLibreView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B26134102BFB92B700E0233E /* RailwayMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B26134352BFB92B900E0233E /* Build configuration list for PBXNativeTarget "RailwayMap" */;
+			buildPhases = (
+				B261340D2BFB92B700E0233E /* Sources */,
+				B261340E2BFB92B700E0233E /* Frameworks */,
+				B261340F2BFB92B700E0233E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RailwayMap;
+			packageProductDependencies = (
+				B26134452BFBA1C500E0233E /* MapLibre */,
+			);
+			productName = RailwayMap;
+			productReference = B26134112BFB92B700E0233E /* RailwayMap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B26134202BFB92B800E0233E /* RailwayMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B26134382BFB92B900E0233E /* Build configuration list for PBXNativeTarget "RailwayMapTests" */;
+			buildPhases = (
+				B261341D2BFB92B800E0233E /* Sources */,
+				B261341E2BFB92B800E0233E /* Frameworks */,
+				B261341F2BFB92B800E0233E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B26134232BFB92B800E0233E /* PBXTargetDependency */,
+			);
+			name = RailwayMapTests;
+			productName = RailwayMapTests;
+			productReference = B26134212BFB92B800E0233E /* RailwayMapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B261342A2BFB92B900E0233E /* RailwayMapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B261343B2BFB92B900E0233E /* Build configuration list for PBXNativeTarget "RailwayMapUITests" */;
+			buildPhases = (
+				B26134272BFB92B900E0233E /* Sources */,
+				B26134282BFB92B900E0233E /* Frameworks */,
+				B26134292BFB92B900E0233E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B261342D2BFB92B900E0233E /* PBXTargetDependency */,
+			);
+			name = RailwayMapUITests;
+			productName = RailwayMapUITests;
+			productReference = B261342B2BFB92B900E0233E /* RailwayMapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B26134092BFB92B700E0233E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					B26134102BFB92B700E0233E = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					B26134202BFB92B800E0233E = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = B26134102BFB92B700E0233E;
+					};
+					B261342A2BFB92B900E0233E = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = B26134102BFB92B700E0233E;
+					};
+				};
+			};
+			buildConfigurationList = B261340C2BFB92B700E0233E /* Build configuration list for PBXProject "RailwayMap" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B26134082BFB92B700E0233E;
+			packageReferences = (
+				B26134442BFBA1C500E0233E /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */,
+			);
+			productRefGroup = B26134122BFB92B700E0233E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B26134102BFB92B700E0233E /* RailwayMap */,
+				B26134202BFB92B800E0233E /* RailwayMapTests */,
+				B261342A2BFB92B900E0233E /* RailwayMapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B261340F2BFB92B700E0233E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B26134432BFBA07800E0233E /* world-railways.mbtiles in Resources */,
+				B261341C2BFB92B800E0233E /* Preview Assets.xcassets in Resources */,
+				B26134192BFB92B800E0233E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B261341F2BFB92B800E0233E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B26134292BFB92B900E0233E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B261340D2BFB92B700E0233E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B26134482BFBA46E00E0233E /* MapLibreView.swift in Sources */,
+				B26134172BFB92B700E0233E /* ContentView.swift in Sources */,
+				B26134412BFB9F9000E0233E /* MapTabView.swift in Sources */,
+				B26134152BFB92B700E0233E /* RailwayMapApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B261341D2BFB92B800E0233E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B26134262BFB92B800E0233E /* RailwayMapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B26134272BFB92B900E0233E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B26134302BFB92B900E0233E /* RailwayMapUITests.swift in Sources */,
+				B26134322BFB92B900E0233E /* RailwayMapUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B26134232BFB92B800E0233E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B26134102BFB92B700E0233E /* RailwayMap */;
+			targetProxy = B26134222BFB92B800E0233E /* PBXContainerItemProxy */;
+		};
+		B261342D2BFB92B900E0233E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B26134102BFB92B700E0233E /* RailwayMap */;
+			targetProxy = B261342C2BFB92B900E0233E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B26134332BFB92B900E0233E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B26134342BFB92B900E0233E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B26134362BFB92B900E0233E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RailwayMap/Preview Content\"";
+				DEVELOPMENT_TEAM = Z729D9DEF5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knapsoft.RailwayMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B26134372BFB92B900E0233E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RailwayMap/Preview Content\"";
+				DEVELOPMENT_TEAM = Z729D9DEF5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knapsoft.RailwayMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B26134392BFB92B900E0233E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z729D9DEF5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knapsoft.RailwayMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RailwayMap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RailwayMap";
+			};
+			name = Debug;
+		};
+		B261343A2BFB92B900E0233E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z729D9DEF5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knapsoft.RailwayMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RailwayMap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RailwayMap";
+			};
+			name = Release;
+		};
+		B261343C2BFB92B900E0233E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z729D9DEF5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knapsoft.RailwayMapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RailwayMap;
+			};
+			name = Debug;
+		};
+		B261343D2BFB92B900E0233E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z729D9DEF5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knapsoft.RailwayMapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RailwayMap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B261340C2BFB92B700E0233E /* Build configuration list for PBXProject "RailwayMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B26134332BFB92B900E0233E /* Debug */,
+				B26134342BFB92B900E0233E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B26134352BFB92B900E0233E /* Build configuration list for PBXNativeTarget "RailwayMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B26134362BFB92B900E0233E /* Debug */,
+				B26134372BFB92B900E0233E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B26134382BFB92B900E0233E /* Build configuration list for PBXNativeTarget "RailwayMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B26134392BFB92B900E0233E /* Debug */,
+				B261343A2BFB92B900E0233E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B261343B2BFB92B900E0233E /* Build configuration list for PBXNativeTarget "RailwayMapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B261343C2BFB92B900E0233E /* Debug */,
+				B261343D2BFB92B900E0233E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B26134442BFBA1C500E0233E /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maplibre/maplibre-gl-native-distribution";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.4.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B26134452BFBA1C500E0233E /* MapLibre */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B26134442BFBA1C500E0233E /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */;
+			productName = MapLibre;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B26134092BFB92B700E0233E /* Project object */;
+}
