@@ -1,5 +1,5 @@
 {
-  "originHash" : "e70d3525c8e2819a8b34f22909815dab5c700c25a06c32388f3930f7b3627768",
+  "originHash" : "611d3f8d208280a03f7fd91e66c4b4faa1c683445e143178b1a802072f175ace",
   "pins" : [
     {
       "identity" : "maplibre-gl-native-distribution",
@@ -8,6 +8,24 @@
       "state" : {
         "revision" : "816a24eb56b7cd004e389f7da404047839d5dc2b",
         "version" : "6.4.2"
+      }
+    },
+    {
+      "identity" : "permissionsswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukaszkn/PermissionsSwiftUI.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "da581a2f02fb69e9c974631fb7a79290282f43c3"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect",
+      "state" : {
+        "revision" : "121c146fe591b1320238d054ae35c81ffa45f45a",
+        "version" : "0.12.0"
       }
     }
   ],

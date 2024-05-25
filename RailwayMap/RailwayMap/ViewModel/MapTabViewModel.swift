@@ -15,8 +15,14 @@ class MapTabViewModel {
     var mapOptions = MapLayerOptions()
     var tapDebugString = ""
     
+    var mapDelegate: MapDelegate?
+    
     func onMapTap(debugString: String) {
         tapDebugString = debugString
         showingMapTapSheet.toggle()
     }
+}
+
+protocol MapDelegate {
+    func updateLayers() -> Void
 }

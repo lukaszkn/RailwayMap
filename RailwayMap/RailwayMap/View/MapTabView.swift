@@ -42,7 +42,9 @@ struct MapTabView: View {
                 Spacer()
             }
         }
-        .sheet(isPresented: $viewModel.showingMapOptions, content: {
+        .sheet(isPresented: $viewModel.showingMapOptions, onDismiss: {
+            viewModel.mapDelegate?.updateLayers()
+        }, content: {
             MapLayersOptionsView(options: $viewModel.mapOptions)
         })
     }

@@ -1,0 +1,33 @@
+{
+	"layers": {
+		"railway": { "minzoom":  4, "maxzoom": 12, "simplify_below": 12, "simplify_level": 0.0003 },
+		"subway": { "minzoom":  4, "maxzoom": 12, "simplify_below": 12, "simplify_level": 0.0003 },
+		"narrow_gauge": { "minzoom":  4, "maxzoom": 12, "simplify_below": 12, "simplify_level": 0.0003 },
+		"tram": { "minzoom":  4, "maxzoom": 12, "simplify_below": 12, "simplify_level": 0.0003 },
+		"light_railway": { "minzoom":  4, "maxzoom": 12, "simplify_below": 12, "simplify_level": 0.0003 },
+		"disused": { "minzoom":  4, "maxzoom": 12, "simplify_below": 12, "simplify_level": 0.0003 },
+
+		"railway_station": { "minzoom": 7, "maxzoom": 12 },
+        "railway_station_name": { "minzoom": 7, "maxzoom": 12 },
+
+		"subway_station": { "minzoom": 7, "maxzoom": 12 },
+        "subway_station_name": { "minzoom": 7, "maxzoom": 12 },
+		
+		"tram_stop": { "minzoom": 7, "maxzoom": 12 },
+        "tram_stop_name": { "minzoom": 7, "maxzoom": 12 },
+		
+		"light_railway_station": { "minzoom": 7, "maxzoom": 12 },
+        "light_railway_station_name": { "minzoom": 7, "maxzoom": 12 }
+	},
+	"settings": {
+		"minzoom": 4,
+		"maxzoom": 12,
+		"basezoom": 12,
+        "combine_below": 12,
+		"include_ids": true,
+		"name": "Railway map",
+		"version": "0.1",
+		"description": "Vector tiles for Railway map",
+		"compress": "gzip"
+	}
+}

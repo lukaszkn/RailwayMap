@@ -16,4 +16,9 @@ struct MapLayerOptions {
     var showTramways = true
     var showLightRailways = true
     var showDisused = false
+    
+    var showRailwayStations = true
+    var showSubwayStations = true
+    var showTramStops = true
+    var showLightRailwayStations = true
 }

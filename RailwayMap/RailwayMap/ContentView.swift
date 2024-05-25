@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showingAskPermissionsModal = false
+    
     enum TabIndex: Int {
         case map = 0
+        case explore = 1
     }
     
     var body: some View {
@@ -19,6 +23,12 @@ struct ContentView: View {
                     Label("Map", systemImage: "map")
                 }
                 .tag(TabIndex.map.rawValue)
+            
+            ExploreTabView()
+                .tabItem {
+                    Label("Explore", systemImage: "scope")
+                }
+                .tag(TabIndex.explore.rawValue)
         }
     }
 }

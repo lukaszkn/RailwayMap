@@ -36,42 +36,76 @@ struct MapLibreView: UIViewRepresentable {
         return mapView
     }
     
-    func updateUIView(_ mapView: MLNMapView, context: Context) { }
+    func updateUIView(_ mapView: MLNMapView, context: Context) {
+        print("MapLibreView updateUIView")
+    }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(viewModel: viewModel)
     }
     
-    class Coordinator: NSObject, MLNMapViewDelegate {
+    class Coordinator: NSObject, MLNMapViewDelegate, MapDelegate {
+        var mapView: MLNMapView?
         var viewModel: MapTabViewModel
+        
+        let osmTileSource: MLNRasterTileSource
+        let osmRasterStyleLayer: MLNRasterStyleLayer
+        let railwaysSource: MLNVectorTileSource
+        
+        let tracksRailwayLayer: MLNLineStyleLayer
+        let tracksNarrowGaugeLayer: MLNLineStyleLayer
         
         init(viewModel: MapTabViewModel) {
             self.viewModel = viewModel
-        }
-        
-        // add sources and layers after loading default style, mapView.style is nil prior to this
-        func mapView(_ mapView: MLNMapView, didFinishLoading style: MLNStyle) {
+            
+            osmTileSource = MLNRasterTileSource(identifier: "osm", tileURLTemplates: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], options: [
+                .minimumZoomLevel: 5,
+                .maximumZoomLevel: 16,
+                .tileSize: 256,
+                .attributionInfos: [
+                    MLNAttributionInfo(title: NSAttributedString(string: "© OpenStreetMap contributors."), url: URL(string: "https://openstreetmap.org"))
+                ]
+            ])
+            
+            osmRasterStyleLayer = MLNRasterStyleLayer(identifier: "osm", source: osmTileSource)
+            osmRasterStyleLayer.minimumRasterBrightness = NSExpression(forConstantValue: 0.25)
             
             let mbURL = "mbtiles:///\(Bundle.main.url(forResource: "poland", withExtension: "mbtiles")!.path())"
-            let railwaysSource = MLNVectorTileSource(identifier: "railway", tileURLTemplates: [mbURL], options: [
+            railwaysSource = MLNVectorTileSource(identifier: "railway", tileURLTemplates: [mbURL], options: [
                 .minimumZoomLevel: 4,
                 .maximumZoomLevel: 12,
                 .attributionInfos: [
                     MLNAttributionInfo(title: NSAttributedString(string: "© MapLibre"), url: URL(string: "https://maplibre.org"))
                 ]
             ])
-            mapView.style?.addSource(railwaysSource)
             
             // add layer representing railway tracks
-            let tracksLayer = MLNLineStyleLayer(identifier: "railway", source: railwaysSource)
-            tracksLayer.sourceLayerIdentifier = "railway"
-            tracksLayer.lineColor = NSExpression(forConstantValue: UIColor.blue)
-            tracksLayer.lineWidth = NSExpression(forConstantValue: 2)
-            mapView.style?.addLayer(tracksLayer)
+            tracksRailwayLayer = MLNLineStyleLayer(identifier: "railway", source: railwaysSource)
+            tracksRailwayLayer.sourceLayerIdentifier = "railway"
+            tracksRailwayLayer.lineColor = NSExpression(forConstantValue: UIColor.blue)
+            tracksRailwayLayer.lineWidth = NSExpression(forConstantValue: 2)
             
-            let tracksNarrowGaugeLayer = MLNLineStyleLayer(identifier: "narrow_gauge", source: railwaysSource)
+            tracksNarrowGaugeLayer = MLNLineStyleLayer(identifier: "narrow_gauge", source: railwaysSource)
             tracksNarrowGaugeLayer.sourceLayerIdentifier = "narrow_gauge"
             tracksNarrowGaugeLayer.lineColor = NSExpression(forConstantValue: UIColor.green)
+            
+            super.init()
+            
+            self.viewModel.mapDelegate = self
+        }
+        
+        // add sources and layers after loading default style, mapView.style is nil prior to this
+        func mapView(_ mapView: MLNMapView, didFinishLoading style: MLNStyle) {
+            self.mapView = mapView
+            
+            mapView.style?.addSource(railwaysSource)
+            
+            
+            updateLayers()
+            
+            mapView.style?.addLayer(osmRasterStyleLayer)
+            
+            mapView.style?.addLayer(tracksRailwayLayer)
             mapView.style?.addLayer(tracksNarrowGaugeLayer)
             
             // add layer with train stations
@@ -87,6 +121,8 @@ struct MapLibreView: UIViewRepresentable {
             stationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
             stationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
             mapView.style?.addLayer(stationNameLayer)
+            
+            
         }
         
         // Get features at tap point
@@ -98,6 +134,22 @@ struct MapLibreView: UIViewRepresentable {
             let features = mapView.visibleFeatures(in: CGRect(x: tapPoint.x - tapSize / 2, y: tapPoint.y - tapSize / 2, width: tapSize, height: tapSize))
             print(features)
             self.viewModel.onMapTap(debugString: String(describing: features))
+        }
+        
+        func updateLayers() {
+            print("updateLayers")
+            
+            if let mapView = mapView, let style = mapView.style  {
+                
+                let containsOsmTileSource = style.sources.contains(osmTileSource)
+                if viewModel.mapOptions.showOpenStreetMap && !containsOsmTileSource {
+                    style.addSource(osmTileSource)
+                } else if !viewModel.mapOptions.showOpenStreetMap && containsOsmTileSource {
+                    style.removeSource(osmTileSource)
+                }
+                
+                osmRasterStyleLayer.isVisible = viewModel.mapOptions.showOpenStreetMap
+            }
         }
     }
 }
