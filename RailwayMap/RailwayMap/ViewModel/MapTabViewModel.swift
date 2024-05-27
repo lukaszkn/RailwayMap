@@ -17,6 +17,10 @@ class MapTabViewModel {
     
     var mapDelegate: MapDelegate?
     
+    init() {
+        
+    }
+    
     func onMapTap(debugString: String) {
         tapDebugString = debugString
         showingMapTapSheet.toggle()

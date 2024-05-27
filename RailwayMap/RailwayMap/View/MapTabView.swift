@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import PermissionsSwiftUILocation
+import CoreLocation
 
 struct MapTabView: View {
     @State var viewModel = MapTabViewModel()
+    @State private var showingAskPermissionsModal = false
     
     var body: some View {
         ZStack {
@@ -40,6 +43,21 @@ struct MapTabView: View {
                 }
                 
                 Spacer()
+            }
+        }
+        .JMModal(showModal: $showingAskPermissionsModal, for: [.location],
+                 autoDismiss: true,
+                 autoCheckAuthorization: true,
+                 onDisappear: {
+                 }
+        )
+        .setPermissionComponent(for: .location,
+                                image: AnyView(Image(systemName: "location.fill.viewfinder")),
+                                title: String(localized: "Location"),
+                                description: String(localized: "Allow to access your location to see which stations/stops you're closed to"))
+        .onAppear() {
+            if CLLocationManager().authorizationStatus == .notDetermined {
+                showingAskPermissionsModal = true
             }
         }
         .sheet(isPresented: $viewModel.showingMapOptions, onDismiss: {

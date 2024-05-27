@@ -53,7 +53,13 @@ struct MapLibreView: UIViewRepresentable {
         let railwaysSource: MLNVectorTileSource
         
         let tracksRailwayLayer: MLNLineStyleLayer
+//        let tracksLightRailwayLayer: MLNLineStyleLayer
         let tracksNarrowGaugeLayer: MLNLineStyleLayer
+//        let tracksSubwayLayer: MLNLineStyleLayer
+//        let tracksTramwayLayer: MLNLineStyleLayer
+//        let tracksDisusedLayer: MLNLineStyleLayer
+        
+        var pannedToUserLocation = false
         
         init(viewModel: MapTabViewModel) {
             self.viewModel = viewModel
@@ -150,6 +156,44 @@ struct MapLibreView: UIViewRepresentable {
                 
                 osmRasterStyleLayer.isVisible = viewModel.mapOptions.showOpenStreetMap
             }
+        }
+        
+        func mapView(_ mapView: MLNMapView, didUpdate userLocation: MLNUserLocation?) {
+            if pannedToUserLocation {
+                return
+            }
+            guard let userLocation = mapView.userLocation else {
+                print("User location is currently not available.")
+                return
+            }
+            
+            mapView.fly(to: MLNMapCamera(lookingAtCenter: userLocation.coordinate, altitude: 100_000, pitch: 0, heading: 0))
+            pannedToUserLocation = true
+        }
+        
+        func mapView(_ mapView: MLNMapView, didChangeLocationManagerAuthorization manager: any MLNLocationManager) {
+            print("mapView didChangeLocationManagerAuthorization")
+            
+            guard let accuracySetting = manager.accuracyAuthorization else {
+                return
+            }
+            let authorizationStatus = manager.authorizationStatus
+            print("status \(authorizationStatus)")
+            
+            if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
+                mapView.showsUserLocation = true
+            }
+            
+            switch accuracySetting() {
+            case .fullAccuracy:
+                print("fullAccuracy")
+            case .reducedAccuracy:
+                print("reducedAccuracy")
+            @unknown default:
+                print("unknown")
+            }
+            
+            
         }
     }
 }

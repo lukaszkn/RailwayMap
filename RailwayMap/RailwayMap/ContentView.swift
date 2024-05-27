@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showingAskPermissionsModal = false
-    
     enum TabIndex: Int {
         case map = 0
         case explore = 1

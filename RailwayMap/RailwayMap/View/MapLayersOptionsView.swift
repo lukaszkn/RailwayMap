@@ -18,12 +18,18 @@ struct MapLayersOptionsView: View {
                 }
                 
                 Section("Tracks") {
-                    MapLayerOptionCellView(description: String(localized: "Railways"), isOn: $options.showRailways)
-                    MapLayerOptionCellView(description: String(localized: "Light railways"), isOn: $options.showLightRailways)
-                    MapLayerOptionCellView(description: String(localized: "Narrow gauge"), isOn: $options.showNarrowGauge)
-                    MapLayerOptionCellView(description: String(localized: "Subways"), isOn: $options.showSubways)
-                    MapLayerOptionCellView(description: String(localized: "Tramways"), isOn: $options.showTramways)
-                    MapLayerOptionCellView(description: String(localized: "Disused"), isOn: $options.showDisused)
+                    MapLayerOptionCellView(lineColor: Color.FlatColor.Blue.Denim,
+                                           description: String(localized: "Railways"), isOn: $options.showRailways)
+                    MapLayerOptionCellView(lineColor: Color.FlatColor.Green.MountainMeadow,
+                                           description: String(localized: "Light railways"), isOn: $options.showLightRailways)
+                    MapLayerOptionCellView(lineColor: Color.FlatColor.Blue.PictonBlue,
+                                           description: String(localized: "Narrow gauge"), isOn: $options.showNarrowGauge)
+                    MapLayerOptionCellView(lineColor: Color.FlatColor.Red.Cinnabar,
+                                           description: String(localized: "Subways"), isOn: $options.showSubways)
+                    MapLayerOptionCellView(lineColor: Color.FlatColor.Violet.BlueGem,
+                                           description: String(localized: "Tramways"), isOn: $options.showTramways)
+                    MapLayerOptionCellView(lineColor: Color.FlatColor.Yellow.Turbo,
+                                           description: String(localized: "Disused"), isOn: $options.showDisused)
                 }
                 
                 Section("Stations") {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B211DA262C04D18900ABD0F3 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211DA252C04D18900ABD0F3 /* LocationService.swift */; };
 		B26134152BFB92B700E0233E /* RailwayMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134142BFB92B700E0233E /* RailwayMapApp.swift */; };
 		B26134172BFB92B700E0233E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134162BFB92B700E0233E /* ContentView.swift */; };
 		B26134192BFB92B800E0233E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B26134182BFB92B800E0233E /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		B2FA04BB2C023CD80036CBB0 /* RailwayMap.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FA04BA2C023CD80036CBB0 /* RailwayMap.png */; };
 		B2FA04BE2C023F8C0036CBB0 /* PermissionsSwiftUILocation in Frameworks */ = {isa = PBXBuildFile; productRef = B2FA04BD2C023F8C0036CBB0 /* PermissionsSwiftUILocation */; };
 		B2FA04C02C0241220036CBB0 /* ExploreTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA04BF2C0241220036CBB0 /* ExploreTabView.swift */; };
+		B2FA04C42C02869B0036CBB0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA04C32C02869B0036CBB0 /* Color+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B211DA242C04CB2000ABD0F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B211DA252C04D18900ABD0F3 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		B26134112BFB92B700E0233E /* RailwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26134142BFB92B700E0233E /* RailwayMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailwayMapApp.swift; sourceTree = "<group>"; };
 		B26134162BFB92B700E0233E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 		B2FA04B82C023C180036CBB0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2FA04BA2C023CD80036CBB0 /* RailwayMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RailwayMap.png; sourceTree = "<group>"; };
 		B2FA04BF2C0241220036CBB0 /* ExploreTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabView.swift; sourceTree = "<group>"; };
+		B2FA04C32C02869B0036CBB0 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,13 +133,16 @@
 		B26134132BFB92B700E0233E /* RailwayMap */ = {
 			isa = PBXGroup;
 			children = (
+				B211DA242C04CB2000ABD0F3 /* Info.plist */,
 				B26134182BFB92B800E0233E /* Assets.xcassets */,
 				B26134162BFB92B700E0233E /* ContentView.swift */,
 				B261343E2BFB934600E0233E /* Data */,
+				B2FA04C22C0286380036CBB0 /* Extensions */,
 				B2C059222C0113FF004326F0 /* Model */,
 				B2FA04B12C0230280036CBB0 /* Other */,
 				B261341A2BFB92B800E0233E /* Preview Content */,
 				B26134142BFB92B700E0233E /* RailwayMapApp.swift */,
+				B2FA04C12C02862B0036CBB0 /* Service */,
 				B261343F2BFB9F7100E0233E /* View */,
 				B2C0591F2C00C26B004326F0 /* ViewModel */,
 			);
@@ -213,6 +221,22 @@
 				B2FA04BA2C023CD80036CBB0 /* RailwayMap.png */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		B2FA04C12C02862B0036CBB0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B211DA252C04D18900ABD0F3 /* LocationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B2FA04C22C0286380036CBB0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA04C32C02869B0036CBB0 /* Color+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +390,8 @@
 				B26134172BFB92B700E0233E /* ContentView.swift in Sources */,
 				B26134412BFB9F9000E0233E /* MapTabView.swift in Sources */,
 				B2C059262C011532004326F0 /* MapLayersOptionsView.swift in Sources */,
+				B2FA04C42C02869B0036CBB0 /* Color+Extensions.swift in Sources */,
+				B211DA262C04D18900ABD0F3 /* LocationService.swift in Sources */,
 				B2C059242C011490004326F0 /* MapLayerOptions.swift in Sources */,
 				B26134152BFB92B700E0233E /* RailwayMapApp.swift in Sources */,
 				B2C059282C011579004326F0 /* MapLayerOptionCellView.swift in Sources */,
@@ -536,11 +562,14 @@
 				DEVELOPMENT_TEAM = Z729D9DEF5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RailwayMap/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Railway map";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -569,11 +598,14 @@
 				DEVELOPMENT_TEAM = Z729D9DEF5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RailwayMap/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Railway map";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

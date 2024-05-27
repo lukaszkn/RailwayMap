@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct MapLayerOptionCellView: View {
+    var lineColor: Color?
     var description: String
     @Binding var isOn: Bool
     
     var body: some View {
         HStack {
+            if let color = lineColor {
+                Rectangle()
+                    .frame(width: 20, height: 3)
+                    .foregroundStyle(color)
+                    .padding(.trailing, 6)
+            }
+            
             Toggle(description, isOn: $isOn)
         }
     }

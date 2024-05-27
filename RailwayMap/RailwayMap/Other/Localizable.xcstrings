@@ -1,13 +1,28 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Allow to access your location to see which stations/stops you're closed to" : {
+
+    },
     "Background layer" : {
 
     },
     "Disused" : {
 
     },
+    "Explore" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "Light railway" : {
+
+    },
     "Light railways" : {
+
+    },
+    "Location" : {
 
     },
     "Map" : {
@@ -22,13 +37,25 @@
     "Open Street Map" : {
 
     },
+    "Railway" : {
+
+    },
     "Railways" : {
+
+    },
+    "Stations" : {
+
+    },
+    "Subway" : {
 
     },
     "Subways" : {
 
     },
     "Tracks" : {
+
+    },
+    "Tram" : {
 
     },
     "Tramways" : {
