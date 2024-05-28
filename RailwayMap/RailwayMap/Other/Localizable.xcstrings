@@ -37,6 +37,9 @@
     "Open Street Map" : {
 
     },
+    "Point details" : {
+
+    },
     "Railway" : {
 
     },
@@ -44,6 +47,9 @@
 
     },
     "Stations" : {
+
+    },
+    "Stations/stops" : {
 
     },
     "Subway" : {

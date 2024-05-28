@@ -18,8 +18,9 @@ struct MapTabView: View {
             MapLibreView(viewModel: viewModel)
                 .ignoresSafeArea(.container, edges: .top)
                 .sheet(isPresented: $viewModel.showingMapTapSheet, content: {
-                    ScrollView {
-                        Text(viewModel.tapDebugString)
+                    NavigationStack {
+                        MapAreaDetailsView(features: viewModel.tapFeatures)
+                            .navigationTitle("Point details")
                     }
                 })
             

@@ -94,6 +94,7 @@ struct MapLibreView: UIViewRepresentable {
             tracksNarrowGaugeLayer = MLNLineStyleLayer(identifier: "narrow_gauge", source: railwaysSource)
             tracksNarrowGaugeLayer.sourceLayerIdentifier = "narrow_gauge"
             tracksNarrowGaugeLayer.lineColor = NSExpression(forConstantValue: UIColor.green)
+            tracksNarrowGaugeLayer.lineWidth = NSExpression(forConstantValue: 2)
             
             super.init()
             
@@ -112,6 +113,14 @@ struct MapLibreView: UIViewRepresentable {
             mapView.style?.addLayer(osmRasterStyleLayer)
             
             mapView.style?.addLayer(tracksRailwayLayer)
+            
+            
+            let tracksNarrowGaugeLayerBackground = MLNLineStyleLayer(identifier: "narrow_gauge_background", source: railwaysSource)
+            tracksNarrowGaugeLayerBackground.sourceLayerIdentifier = "narrow_gauge"
+            tracksNarrowGaugeLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
+            tracksNarrowGaugeLayerBackground.lineWidth = NSExpression(forConstantValue: 5)
+            mapView.style?.addLayer(tracksNarrowGaugeLayerBackground)
+            
             mapView.style?.addLayer(tracksNarrowGaugeLayer)
             
             // add layer with train stations
@@ -139,13 +148,13 @@ struct MapLibreView: UIViewRepresentable {
             let tapSize = 20.0
             let features = mapView.visibleFeatures(in: CGRect(x: tapPoint.x - tapSize / 2, y: tapPoint.y - tapSize / 2, width: tapSize, height: tapSize))
             print(features)
-            self.viewModel.onMapTap(debugString: String(describing: features))
+            self.viewModel.onMapTap(features: features)
         }
         
         func updateLayers() {
             print("updateLayers")
             
-            if let mapView = mapView, let style = mapView.style  {
+            if let mapView = mapView, let style = mapView.style {
                 
                 let containsOsmTileSource = style.sources.contains(osmTileSource)
                 if viewModel.mapOptions.showOpenStreetMap && !containsOsmTileSource {

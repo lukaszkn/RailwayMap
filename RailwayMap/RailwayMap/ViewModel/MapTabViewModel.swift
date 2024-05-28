@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapLibre
 
 @Observable
 class MapTabViewModel {
@@ -13,7 +14,7 @@ class MapTabViewModel {
     var showingMapOptions = false
     
     var mapOptions = MapLayerOptions()
-    var tapDebugString = ""
+    var tapFeatures: [MLNFeature] = []
     
     var mapDelegate: MapDelegate?
     
@@ -21,9 +22,9 @@ class MapTabViewModel {
         
     }
     
-    func onMapTap(debugString: String) {
-        tapDebugString = debugString
-        showingMapTapSheet.toggle()
+    func onMapTap(features: [MLNFeature]) {
+        tapFeatures = features
+        showingMapTapSheet = true
     }
 }
 
