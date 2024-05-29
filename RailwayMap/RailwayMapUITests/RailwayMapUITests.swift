@@ -4,6 +4,10 @@
 //
 //  Created by Lukasz on 20/05/2024.
 //
+// https://blog.winsmith.de/english/ios/2020/04/14/xcuitest-screenshots.html
+// https://blog.slaunchaman.com/2020/01/16/automatically-turn-ui-tests-into-screen-recordings/
+// https://testableapple.com/video-recording-of-failed-tests-on-ios/
+// https://github.com/ChargePoint/xcparse
 
 import XCTest
 

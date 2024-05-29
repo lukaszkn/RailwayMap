@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "frame_iPhone15ProMax.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -18,17 +18,17 @@ struct MapLayersOptionsView: View {
                 }
                 
                 Section("Tracks") {
-                    MapLayerOptionCellView(lineColor: Color.FlatColor.Blue.Denim,
+                    MapLayerOptionCellView(lineColor: Color.tracksRailways,
                                            description: String(localized: "Railways"), isOn: $options.showRailways)
-                    MapLayerOptionCellView(lineColor: Color.FlatColor.Green.MountainMeadow,
+                    MapLayerOptionCellView(lineColor: Color.tracksLightRailways,
                                            description: String(localized: "Light railways"), isOn: $options.showLightRailways)
-                    MapLayerOptionCellView(lineColor: Color.FlatColor.Blue.PictonBlue,
+                    MapLayerOptionCellView(lineColor: Color.tracksNarrowGauge,
                                            description: String(localized: "Narrow gauge"), isOn: $options.showNarrowGauge)
-                    MapLayerOptionCellView(lineColor: Color.FlatColor.Red.Cinnabar,
+                    MapLayerOptionCellView(lineColor: Color.tracksSubways,
                                            description: String(localized: "Subways"), isOn: $options.showSubways)
-                    MapLayerOptionCellView(lineColor: Color.FlatColor.Violet.BlueGem,
+                    MapLayerOptionCellView(lineColor: Color.tracksTramways,
                                            description: String(localized: "Tramways"), isOn: $options.showTramways)
-                    MapLayerOptionCellView(lineColor: Color.FlatColor.Yellow.Turbo,
+                    MapLayerOptionCellView(lineColor: Color.tracksDisused,
                                            description: String(localized: "Disused"), isOn: $options.showDisused)
                 }
                 

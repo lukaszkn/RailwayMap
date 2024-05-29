@@ -19,7 +19,7 @@ struct MapTabView: View {
                 .ignoresSafeArea(.container, edges: .top)
                 .sheet(isPresented: $viewModel.showingMapTapSheet, content: {
                     NavigationStack {
-                        MapAreaDetailsView(features: viewModel.tapFeatures)
+                        MapAreaDetailsView(features: $viewModel.tapFeatures)
                             .navigationTitle("Point details")
                     }
                 })
@@ -62,7 +62,7 @@ struct MapTabView: View {
             }
         }
         .sheet(isPresented: $viewModel.showingMapOptions, onDismiss: {
-            viewModel.mapDelegate?.updateLayers()
+            viewModel.mapSourceService.mapDelegate?.updateLayers()
         }, content: {
             MapLayersOptionsView(options: $viewModel.mapOptions)
         })

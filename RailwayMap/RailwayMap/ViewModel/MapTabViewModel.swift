@@ -16,10 +16,10 @@ class MapTabViewModel {
     var mapOptions = MapLayerOptions()
     var tapFeatures: [MLNFeature] = []
     
-    var mapDelegate: MapDelegate?
+    var mapSourceService: MapSourceService
     
     init() {
-        
+        self.mapSourceService = AppDelegate.instance.container.resolve(MapSourceService.self)!
     }
     
     func onMapTap(features: [MLNFeature]) {
@@ -28,6 +28,4 @@ class MapTabViewModel {
     }
 }
 
-protocol MapDelegate {
-    func updateLayers() -> Void
-}
+

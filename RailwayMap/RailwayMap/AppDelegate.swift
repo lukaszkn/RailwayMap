@@ -22,6 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let container = Container()
         
         container.register(LocationService.self) { _ in LocationService() }.inObjectScope(.container)
+        container.register(MapSourceService.self) { _ in MapSourceService() }.inObjectScope(.container)
         
         return container
     }()

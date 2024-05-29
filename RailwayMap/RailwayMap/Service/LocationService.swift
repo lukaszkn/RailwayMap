@@ -8,8 +8,29 @@
 import Foundation
 import CoreLocation
 
-class LocationService {
+class LocationService: NSObject {
     private var locManager = CLLocationManager()
     
+    var lastLocation: CLLocation?
     
+    override init() {
+        super.init()
+        
+        locManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locManager.pausesLocationUpdatesAutomatically = true
+        locManager.distanceFilter = 5
+        
+        self.lastLocation = locManager.location
+        
+        locManager.delegate = self
+    }
+}
+
+extension LocationService: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.count > 0 {
+            self.lastLocation = locations[0]
+        }
+    }
 }

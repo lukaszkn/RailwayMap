@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ExploreTabView: View {
+    @State var viewModel = ExploreTabViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            MapAreaDetailsView(features: $viewModel.areaFeatures)
+                .navigationTitle("Explore nearby area")
+        }
+        .onAppear() {
+            viewModel.onAppear()
+        }
     }
 }
 

@@ -61,4 +61,11 @@ extension Color {
             static let IronGray = Color(withHex: 0x75706B)
         }
     }
+    
+    static let tracksRailways = Color.FlatColor.Blue.Denim
+    static let tracksLightRailways = Color.FlatColor.Green.MountainMeadow
+    static let tracksNarrowGauge = Color.FlatColor.Blue.PictonBlue
+    static let tracksSubways = Color.FlatColor.Red.Cinnabar
+    static let tracksTramways = Color.FlatColor.Violet.BlueGem
+    static let tracksDisused = Color.FlatColor.Yellow.Turbo
 }

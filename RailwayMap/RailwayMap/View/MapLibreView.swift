@@ -47,6 +47,7 @@ struct MapLibreView: UIViewRepresentable {
     class Coordinator: NSObject, MLNMapViewDelegate, MapDelegate {
         var mapView: MLNMapView?
         var viewModel: MapTabViewModel
+        var mapSourceService: MapSourceService
         
         let osmTileSource: MLNRasterTileSource
         let osmRasterStyleLayer: MLNRasterStyleLayer
@@ -59,10 +60,14 @@ struct MapLibreView: UIViewRepresentable {
 //        let tracksTramwayLayer: MLNLineStyleLayer
 //        let tracksDisusedLayer: MLNLineStyleLayer
         
+        let tracksRailwayLayerBackground: MLNLineStyleLayer
+        let tracksNarrowGaugeLayerBackground: MLNLineStyleLayer
+        
         var pannedToUserLocation = false
         
         init(viewModel: MapTabViewModel) {
             self.viewModel = viewModel
+            self.mapSourceService = AppDelegate.instance.container.resolve(MapSourceService.self)!
             
             osmTileSource = MLNRasterTileSource(identifier: "osm", tileURLTemplates: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], options: [
                 .minimumZoomLevel: 5,
@@ -88,17 +93,31 @@ struct MapLibreView: UIViewRepresentable {
             // add layer representing railway tracks
             tracksRailwayLayer = MLNLineStyleLayer(identifier: "railway", source: railwaysSource)
             tracksRailwayLayer.sourceLayerIdentifier = "railway"
-            tracksRailwayLayer.lineColor = NSExpression(forConstantValue: UIColor.blue)
+            tracksRailwayLayer.lineColor = NSExpression(forConstantValue: UIColor(Color.tracksRailways))
             tracksRailwayLayer.lineWidth = NSExpression(forConstantValue: 2)
+            
+            tracksRailwayLayerBackground = MLNLineStyleLayer(identifier: "railway_background", source: railwaysSource)
+            tracksRailwayLayerBackground.sourceLayerIdentifier = "railway"
+            tracksRailwayLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
+            tracksRailwayLayerBackground.lineWidth = NSExpression(forConstantValue: 5)
+            
+            // ---------------
             
             tracksNarrowGaugeLayer = MLNLineStyleLayer(identifier: "narrow_gauge", source: railwaysSource)
             tracksNarrowGaugeLayer.sourceLayerIdentifier = "narrow_gauge"
-            tracksNarrowGaugeLayer.lineColor = NSExpression(forConstantValue: UIColor.green)
+            tracksNarrowGaugeLayer.lineColor = NSExpression(forConstantValue: UIColor(Color.tracksNarrowGauge))
             tracksNarrowGaugeLayer.lineWidth = NSExpression(forConstantValue: 2)
+            
+            tracksNarrowGaugeLayerBackground = MLNLineStyleLayer(identifier: "narrow_gauge_background", source: railwaysSource)
+            tracksNarrowGaugeLayerBackground.sourceLayerIdentifier = "narrow_gauge"
+            tracksNarrowGaugeLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
+            tracksNarrowGaugeLayerBackground.lineWidth = NSExpression(forConstantValue: 5)
+            
+            // ---------------
             
             super.init()
             
-            self.viewModel.mapDelegate = self
+            self.mapSourceService.mapDelegate = self
         }
         
         // add sources and layers after loading default style, mapView.style is nil prior to this
@@ -112,16 +131,13 @@ struct MapLibreView: UIViewRepresentable {
             
             mapView.style?.addLayer(osmRasterStyleLayer)
             
+            mapView.style?.addLayer(tracksRailwayLayerBackground)
             mapView.style?.addLayer(tracksRailwayLayer)
             
-            
-            let tracksNarrowGaugeLayerBackground = MLNLineStyleLayer(identifier: "narrow_gauge_background", source: railwaysSource)
-            tracksNarrowGaugeLayerBackground.sourceLayerIdentifier = "narrow_gauge"
-            tracksNarrowGaugeLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
-            tracksNarrowGaugeLayerBackground.lineWidth = NSExpression(forConstantValue: 5)
             mapView.style?.addLayer(tracksNarrowGaugeLayerBackground)
-            
             mapView.style?.addLayer(tracksNarrowGaugeLayer)
+            
+            // Stations/stops
             
             // add layer with train stations
             let stationsLayer = MLNCircleStyleLayer(identifier: "railway_station", source: railwaysSource)
@@ -137,8 +153,32 @@ struct MapLibreView: UIViewRepresentable {
             stationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
             mapView.style?.addLayer(stationNameLayer)
             
+#if DEBUG
+            dbStats()
+#endif
+        }
+        
+#if DEBUG
+        func dbStats() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                let features = self.railwaysSource.features(sourceLayerIdentifiers: ["railway_station", "tram_stop", "subway_station", "light_railway_station"], predicate: nil)
+                
+                var railwayStationCount = 0
+                
+                for feature in features {
+                    if feature.isKind(of: MLNPointFeature.self) {
+                        if let nodeType = feature.attribute(forKey: "nt") as? Int {
+                            switch nodeType {
+                            default:
+                                railwayStationCount += 1
+                            }
+                        }
+                    }
+                }
+            }
             
         }
+#endif
         
         // Get features at tap point
         @objc func handleMapTap(sender: UITapGestureRecognizer) {
@@ -164,6 +204,20 @@ struct MapLibreView: UIViewRepresentable {
                 }
                 
                 osmRasterStyleLayer.isVisible = viewModel.mapOptions.showOpenStreetMap
+                
+                tracksRailwayLayerBackground.isVisible = viewModel.mapOptions.showRailways
+                tracksRailwayLayer.isVisible = viewModel.mapOptions.showRailways
+                
+                tracksNarrowGaugeLayerBackground.isVisible = viewModel.mapOptions.showNarrowGauge
+                tracksNarrowGaugeLayer.isVisible = viewModel.mapOptions.showNarrowGauge
+            }
+        }
+        
+        func getAreaFeatures() -> [MLNFeature] {
+            if let frame = mapView?.frame {
+                return mapView?.visibleFeatures(in: frame) ?? []
+            } else {
+                return []
             }
         }
         
