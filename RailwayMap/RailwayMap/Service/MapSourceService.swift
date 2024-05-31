@@ -14,4 +14,5 @@ class MapSourceService {
 protocol MapDelegate {
     func updateLayers() -> Void
     func getAreaFeatures() -> [MLNFeature]
+    func flyToCoordinate(coordinate: CLLocationCoordinate2D)
 }

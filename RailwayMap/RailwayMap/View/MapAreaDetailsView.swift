@@ -24,7 +24,7 @@ struct MapAreaDetailsView: View {
                                     .foregroundColor(.primary)
                                     .font(.headline)
                                 
-                                Text(station.nodeType.typeString())
+                                Text(station.secondaryDescriptionLine)
                                     .foregroundColor(.secondary)
                                     .font(.subheadline)
                             }
@@ -34,6 +34,10 @@ struct MapAreaDetailsView: View {
                             Text(station.distanceString(location: viewModel.locationService.lastLocation))
                                 .foregroundColor(.blue)
                                 .font(.body)
+                        }
+                        .onTapGesture {
+                            NotificationCenter.default.post(name: .mainTabIndexChangeRequest, object: ContentView.TabIndex.map.rawValue)
+                            viewModel.mapSourceService.mapDelegate?.flyToCoordinate(coordinate: station.coordinate)
                         }
                     }
                 }

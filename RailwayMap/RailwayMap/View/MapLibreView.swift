@@ -54,14 +54,23 @@ struct MapLibreView: UIViewRepresentable {
         let railwaysSource: MLNVectorTileSource
         
         let tracksRailwayLayer: MLNLineStyleLayer
-//        let tracksLightRailwayLayer: MLNLineStyleLayer
+        let tracksLightRailwayLayer: MLNLineStyleLayer
         let tracksNarrowGaugeLayer: MLNLineStyleLayer
-//        let tracksSubwayLayer: MLNLineStyleLayer
-//        let tracksTramwayLayer: MLNLineStyleLayer
-//        let tracksDisusedLayer: MLNLineStyleLayer
+        let tracksSubwayLayer: MLNLineStyleLayer
+        let tracksTramwayLayer: MLNLineStyleLayer
+        let tracksDisusedLayer: MLNLineStyleLayer
         
         let tracksRailwayLayerBackground: MLNLineStyleLayer
+        let tracksLightRailwayLayerBackground: MLNLineStyleLayer
         let tracksNarrowGaugeLayerBackground: MLNLineStyleLayer
+        let tracksSubwayLayerBackground: MLNLineStyleLayer
+        let tracksTramwayLayerBackground: MLNLineStyleLayer
+        let tracksDisusedLayerBackground: MLNLineStyleLayer
+        
+        let railwayStationLayer: MLNCircleStyleLayer
+        let tramStopLayer: MLNCircleStyleLayer
+        let subwayStationLayer: MLNCircleStyleLayer
+        let lightRailwayStationLayer: MLNCircleStyleLayer
         
         var pannedToUserLocation = false
         
@@ -90,30 +99,98 @@ struct MapLibreView: UIViewRepresentable {
                 ]
             ])
             
+            let lineWidth = 2
+            let backgroundLineWidth = 5
+            
             // add layer representing railway tracks
             tracksRailwayLayer = MLNLineStyleLayer(identifier: "railway", source: railwaysSource)
             tracksRailwayLayer.sourceLayerIdentifier = "railway"
             tracksRailwayLayer.lineColor = NSExpression(forConstantValue: UIColor(Color.tracksRailways))
-            tracksRailwayLayer.lineWidth = NSExpression(forConstantValue: 2)
+            tracksRailwayLayer.lineWidth = NSExpression(forConstantValue: lineWidth)
             
             tracksRailwayLayerBackground = MLNLineStyleLayer(identifier: "railway_background", source: railwaysSource)
-            tracksRailwayLayerBackground.sourceLayerIdentifier = "railway"
+            tracksRailwayLayerBackground.sourceLayerIdentifier = tracksRailwayLayer.sourceLayerIdentifier
             tracksRailwayLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
-            tracksRailwayLayerBackground.lineWidth = NSExpression(forConstantValue: 5)
+            tracksRailwayLayerBackground.lineWidth = NSExpression(forConstantValue: backgroundLineWidth)
             
             // ---------------
             
             tracksNarrowGaugeLayer = MLNLineStyleLayer(identifier: "narrow_gauge", source: railwaysSource)
             tracksNarrowGaugeLayer.sourceLayerIdentifier = "narrow_gauge"
             tracksNarrowGaugeLayer.lineColor = NSExpression(forConstantValue: UIColor(Color.tracksNarrowGauge))
-            tracksNarrowGaugeLayer.lineWidth = NSExpression(forConstantValue: 2)
+            tracksNarrowGaugeLayer.lineWidth = NSExpression(forConstantValue: lineWidth)
             
             tracksNarrowGaugeLayerBackground = MLNLineStyleLayer(identifier: "narrow_gauge_background", source: railwaysSource)
-            tracksNarrowGaugeLayerBackground.sourceLayerIdentifier = "narrow_gauge"
+            tracksNarrowGaugeLayerBackground.sourceLayerIdentifier = tracksNarrowGaugeLayer.sourceLayerIdentifier
             tracksNarrowGaugeLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
-            tracksNarrowGaugeLayerBackground.lineWidth = NSExpression(forConstantValue: 5)
+            tracksNarrowGaugeLayerBackground.lineWidth = NSExpression(forConstantValue: backgroundLineWidth)
             
             // ---------------
+            
+            tracksTramwayLayer = MLNLineStyleLayer(identifier: "tram", source: railwaysSource)
+            tracksTramwayLayer.sourceLayerIdentifier = "tram"
+            tracksTramwayLayer.lineColor = NSExpression(forConstantValue: UIColor(Color.tracksTramways))
+            tracksTramwayLayer.lineWidth = NSExpression(forConstantValue: lineWidth)
+            
+            tracksTramwayLayerBackground = MLNLineStyleLayer(identifier: "tram_background", source: railwaysSource)
+            tracksTramwayLayerBackground.sourceLayerIdentifier = tracksTramwayLayer.sourceLayerIdentifier
+            tracksTramwayLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
+            tracksTramwayLayerBackground.lineWidth = NSExpression(forConstantValue: backgroundLineWidth)
+            
+            // ---------------
+            
+            tracksLightRailwayLayer = MLNLineStyleLayer(identifier: "light_railway", source: railwaysSource)
+            tracksLightRailwayLayer.sourceLayerIdentifier = "light_railway"
+            tracksLightRailwayLayer.lineColor = NSExpression(forConstantValue: UIColor(Color.tracksLightRailways))
+            tracksLightRailwayLayer.lineWidth = NSExpression(forConstantValue: lineWidth)
+            
+            tracksLightRailwayLayerBackground = MLNLineStyleLayer(identifier: "light_railway_background", source: railwaysSource)
+            tracksLightRailwayLayerBackground.sourceLayerIdentifier = tracksLightRailwayLayer.sourceLayerIdentifier
+            tracksLightRailwayLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
+            tracksLightRailwayLayerBackground.lineWidth = NSExpression(forConstantValue: backgroundLineWidth)
+            
+            // ---------------
+            
+            tracksSubwayLayer = MLNLineStyleLayer(identifier: "subway", source: railwaysSource)
+            tracksSubwayLayer.sourceLayerIdentifier = "subway"
+            tracksSubwayLayer.lineColor = NSExpression(forConstantValue: UIColor(Color.tracksSubways))
+            tracksSubwayLayer.lineWidth = NSExpression(forConstantValue: lineWidth)
+            
+            tracksSubwayLayerBackground = MLNLineStyleLayer(identifier: "subway_background", source: railwaysSource)
+            tracksSubwayLayerBackground.sourceLayerIdentifier = tracksSubwayLayer.sourceLayerIdentifier
+            tracksSubwayLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
+            tracksSubwayLayerBackground.lineWidth = NSExpression(forConstantValue: backgroundLineWidth)
+            
+            // ---------------
+            
+            tracksDisusedLayer = MLNLineStyleLayer(identifier: "disused", source: railwaysSource)
+            tracksDisusedLayer.sourceLayerIdentifier = "disused"
+            tracksDisusedLayer.lineColor = NSExpression(forConstantValue: UIColor(Color.tracksDisused))
+            tracksDisusedLayer.lineWidth = NSExpression(forConstantValue: lineWidth)
+            
+            tracksDisusedLayerBackground = MLNLineStyleLayer(identifier: "disused_background", source: railwaysSource)
+            tracksDisusedLayerBackground.sourceLayerIdentifier = tracksDisusedLayer.sourceLayerIdentifier
+            tracksDisusedLayerBackground.lineColor = NSExpression(forConstantValue: UIColor.white)
+            tracksDisusedLayerBackground.lineWidth = NSExpression(forConstantValue: backgroundLineWidth)
+            
+            // ---------------
+            
+            railwayStationLayer = MLNCircleStyleLayer(identifier: "railway_station", source: railwaysSource)
+            railwayStationLayer.sourceLayerIdentifier = "railway_station"
+            railwayStationLayer.circleColor = NSExpression(forConstantValue: UIColor(Color.stationRailway))
+            //railwayStationLayer.circleRadius = NSExpression(forConstantValue: 1) https://docs.maptiler.com/maplibre-gl-native-ios/predicates-and-expressions/
+            
+            tramStopLayer = MLNCircleStyleLayer(identifier: "tram_stop", source: railwaysSource)
+            tramStopLayer.sourceLayerIdentifier = "tram_stop"
+            tramStopLayer.circleColor = NSExpression(forConstantValue: UIColor(Color.stationTram))
+            
+            subwayStationLayer = MLNCircleStyleLayer(identifier: "subway_station", source: railwaysSource)
+            subwayStationLayer.sourceLayerIdentifier = "subway_station"
+            subwayStationLayer.circleColor = NSExpression(forConstantValue: UIColor(Color.stationSubway))
+            
+            lightRailwayStationLayer = MLNCircleStyleLayer(identifier: "light_railway_station", source: railwaysSource)
+            lightRailwayStationLayer.sourceLayerIdentifier = "light_railway_station"
+            lightRailwayStationLayer.circleColor = NSExpression(forConstantValue: UIColor(Color.stationLightRailway))
             
             super.init()
             
@@ -131,50 +208,75 @@ struct MapLibreView: UIViewRepresentable {
             
             mapView.style?.addLayer(osmRasterStyleLayer)
             
+            // tracks
+            
             mapView.style?.addLayer(tracksRailwayLayerBackground)
             mapView.style?.addLayer(tracksRailwayLayer)
             
             mapView.style?.addLayer(tracksNarrowGaugeLayerBackground)
             mapView.style?.addLayer(tracksNarrowGaugeLayer)
             
+            mapView.style?.addLayer(tracksSubwayLayerBackground)
+            mapView.style?.addLayer(tracksSubwayLayer)
+            
+            mapView.style?.addLayer(tracksTramwayLayerBackground)
+            mapView.style?.addLayer(tracksTramwayLayer)
+            
+            mapView.style?.addLayer(tracksLightRailwayLayerBackground)
+            mapView.style?.addLayer(tracksLightRailwayLayer)
+            
+            mapView.style?.addLayer(tracksDisusedLayerBackground)
+            mapView.style?.addLayer(tracksDisusedLayer)
+            
             // Stations/stops
             
-            // add layer with train stations
-            let stationsLayer = MLNCircleStyleLayer(identifier: "railway_station", source: railwaysSource)
-            stationsLayer.sourceLayerIdentifier = "railway_station"
-            stationsLayer.circleColor = NSExpression(forConstantValue: UIColor.red)
-            //stationsLayer.circleRadius = NSExpression(forConstantValue: 1) https://docs.maptiler.com/maplibre-gl-native-ios/predicates-and-expressions/
-            mapView.style?.addLayer(stationsLayer)
+            mapView.style?.addLayer(railwayStationLayer)
+            mapView.style?.addLayer(tramStopLayer)
+            mapView.style?.addLayer(subwayStationLayer)
+            mapView.style?.addLayer(lightRailwayStationLayer)
+            
+            // Stations/stops names
+            
+            
             
             let stationNameLayer = MLNSymbolStyleLayer(identifier: "railway_station_name", source: railwaysSource)
             stationNameLayer.sourceLayerIdentifier = "railway_station_name"
             stationNameLayer.text = NSExpression(forKeyPath: "name")
             stationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
             stationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
+            stationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
             mapView.style?.addLayer(stationNameLayer)
             
 #if DEBUG
-            dbStats()
+            //dbStats()
 #endif
         }
         
 #if DEBUG
         func dbStats() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                let features = self.railwaysSource.features(sourceLayerIdentifiers: ["railway_station", "tram_stop", "subway_station", "light_railway_station"], predicate: nil)
+                let features = self.railwaysSource.features(sourceLayerIdentifiers: [/*"railway_station",*/ "tram_stop", "subway_station", "light_railway_station"], predicate: nil)
                 
-                var railwayStationCount = 0
+                var railwayStationCount = 0, tramStopCount = 0, subwayStationCount = 0, lightRailwayStationCount = 0
                 
                 for feature in features {
                     if feature.isKind(of: MLNPointFeature.self) {
                         if let nodeType = feature.attribute(forKey: "nt") as? Int {
-                            switch nodeType {
+                            switch NodeType(rawValue: nodeType) {
+                            case .tram: tramStopCount += 1
+                            case .subway: subwayStationCount += 1
+                            case .lightRail: lightRailwayStationCount += 1
                             default:
                                 railwayStationCount += 1
                             }
                         }
                     }
                 }
+                
+                print("Railway \(railwayStationCount)")
+                print("Tram \(tramStopCount)")
+                print("Subway \(subwayStationCount)")
+                print("Light railway \(lightRailwayStationCount)")
             }
             
         }
@@ -210,6 +312,18 @@ struct MapLibreView: UIViewRepresentable {
                 
                 tracksNarrowGaugeLayerBackground.isVisible = viewModel.mapOptions.showNarrowGauge
                 tracksNarrowGaugeLayer.isVisible = viewModel.mapOptions.showNarrowGauge
+                
+                tracksSubwayLayerBackground.isVisible = viewModel.mapOptions.showSubways
+                tracksSubwayLayer.isVisible = viewModel.mapOptions.showSubways
+                
+                tracksTramwayLayerBackground.isVisible = viewModel.mapOptions.showTramways
+                tracksTramwayLayer.isVisible = viewModel.mapOptions.showTramways
+                
+                tracksLightRailwayLayerBackground.isVisible = viewModel.mapOptions.showLightRailways
+                tracksLightRailwayLayer.isVisible = viewModel.mapOptions.showLightRailways
+                
+                tracksDisusedLayerBackground.isVisible = viewModel.mapOptions.showDisused
+                tracksDisusedLayer.isVisible = viewModel.mapOptions.showDisused
             }
         }
         
@@ -219,6 +333,10 @@ struct MapLibreView: UIViewRepresentable {
             } else {
                 return []
             }
+        }
+        
+        func flyToCoordinate(coordinate: CLLocationCoordinate2D) {
+            mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 25_000, pitch: 0, heading: 0))
         }
         
         func mapView(_ mapView: MLNMapView, didUpdate userLocation: MLNUserLocation?) {

@@ -33,10 +33,10 @@ struct MapLayersOptionsView: View {
                 }
                 
                 Section("Stations") {
-                    MapLayerOptionCellView(description: String(localized: "Railway"), isOn: $options.showRailwayStations)
-                    MapLayerOptionCellView(description: String(localized: "Light railway"), isOn: $options.showLightRailwayStations)
-                    MapLayerOptionCellView(description: String(localized: "Subway"), isOn: $options.showSubwayStations)
-                    MapLayerOptionCellView(description: String(localized: "Tram"), isOn: $options.showTramStops)
+                    MapLayerOptionCellView(isCircle: true, lineColor: Color.stationRailway, description: String(localized: "Railway"), isOn: $options.showRailwayStations)
+                    MapLayerOptionCellView(isCircle: true, lineColor: Color.stationLightRailway, description: String(localized: "Light railway"), isOn: $options.showLightRailwayStations)
+                    MapLayerOptionCellView(isCircle: true, lineColor: Color.stationSubway, description: String(localized: "Subway"), isOn: $options.showSubwayStations)
+                    MapLayerOptionCellView(isCircle: true, lineColor: Color.stationTram, description: String(localized: "Tram"), isOn: $options.showTramStops)
                 }
             }
             .navigationTitle("Map options")

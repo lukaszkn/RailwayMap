@@ -14,9 +14,11 @@ class MapAreaDetailsViewModel {
     var tracks: [Track] = []
     
     var locationService: LocationService
+    var mapSourceService: MapSourceService
 
     init() {
         self.locationService = AppDelegate.instance.container.resolve(LocationService.self)!
+        self.mapSourceService = AppDelegate.instance.container.resolve(MapSourceService.self)!
     }
     
     func prepareData(features: [MLNFeature]) {

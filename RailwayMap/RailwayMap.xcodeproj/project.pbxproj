@@ -26,6 +26,7 @@
 		B25C917C2C0736FA00EC0278 /* MapSourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C917B2C0736FA00EC0278 /* MapSourceService.swift */; };
 		B25C917E2C07803300EC0278 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C917D2C07803300EC0278 /* Double+Extensions.swift */; };
 		B25C91802C07875C00EC0278 /* Notification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C917F2C07875C00EC0278 /* Notification+Extensions.swift */; };
+		B25C91822C07AD7900EC0278 /* MainContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C91812C07AD7900EC0278 /* MainContentViewModel.swift */; };
 		B26134152BFB92B700E0233E /* RailwayMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134142BFB92B700E0233E /* RailwayMapApp.swift */; };
 		B26134172BFB92B700E0233E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134162BFB92B700E0233E /* ContentView.swift */; };
 		B26134192BFB92B800E0233E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B26134182BFB92B800E0233E /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		B25C917B2C0736FA00EC0278 /* MapSourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSourceService.swift; sourceTree = "<group>"; };
 		B25C917D2C07803300EC0278 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		B25C917F2C07875C00EC0278 /* Notification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extensions.swift"; sourceTree = "<group>"; };
+		B25C91812C07AD7900EC0278 /* MainContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewModel.swift; sourceTree = "<group>"; };
 		B26134112BFB92B700E0233E /* RailwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26134142BFB92B700E0233E /* RailwayMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailwayMapApp.swift; sourceTree = "<group>"; };
 		B26134162BFB92B700E0233E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				B25C91792C07354800EC0278 /* ExploreTabViewModel.swift */,
+				B25C91812C07AD7900EC0278 /* MainContentViewModel.swift */,
 				B211DA292C04FF3500ABD0F3 /* MapAreaDetailsViewModel.swift */,
 				B2C059202C00C2EC004326F0 /* MapTabViewModel.swift */,
 			);
@@ -472,6 +475,7 @@
 				B26134172BFB92B700E0233E /* ContentView.swift in Sources */,
 				B26134412BFB9F9000E0233E /* MapTabView.swift in Sources */,
 				B25C91802C07875C00EC0278 /* Notification+Extensions.swift in Sources */,
+				B25C91822C07AD7900EC0278 /* MainContentViewModel.swift in Sources */,
 				B2C059262C011532004326F0 /* MapLayersOptionsView.swift in Sources */,
 				B211DA2C2C0500D400ABD0F3 /* Station.swift in Sources */,
 				B211DA2A2C04FF3500ABD0F3 /* MapAreaDetailsViewModel.swift in Sources */,

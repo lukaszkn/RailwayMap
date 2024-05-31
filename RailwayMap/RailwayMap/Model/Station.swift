@@ -24,6 +24,14 @@ struct Station: Identifiable {
         let distance = location.distance(from: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
         return distance.distanceLongString()
     }
+    
+    var secondaryDescriptionLine: String {
+        var text = self.nodeType.typeString()
+        if let line {
+            text += ", \(line)"
+        }
+        return text
+    }
 }
 
 enum NodeType: Int {

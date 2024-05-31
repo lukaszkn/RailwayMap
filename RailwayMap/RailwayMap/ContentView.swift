@@ -9,13 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var viewModel = MainContentViewModel()
+    
     enum TabIndex: Int {
         case map = 0
         case explore = 1
     }
     
+    var tabIndexHandler: Binding<Int> { Binding(
+        get: { self.viewModel.tabSelection },
+        set: { self.viewModel.tabSelection = $0 }
+    )}
+    
     var body: some View {
-        TabView {
+        TabView(selection: tabIndexHandler) {
             MapTabView()
                 .tabItem {
                     Label("Map", systemImage: "map")

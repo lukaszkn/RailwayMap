@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MapLayerOptionCellView: View {
+    var isCircle: Bool = false
     var lineColor: Color?
     var description: String
     @Binding var isOn: Bool
@@ -15,10 +16,17 @@ struct MapLayerOptionCellView: View {
     var body: some View {
         HStack {
             if let color = lineColor {
-                Rectangle()
-                    .frame(width: 20, height: 3)
-                    .foregroundStyle(color)
-                    .padding(.trailing, 6)
+                if isCircle {
+                    Circle()
+                        .foregroundColor(color)
+                        .frame(width: 20, height: 10)
+                        .padding(.trailing, 6)
+                } else {
+                    Rectangle()
+                        .frame(width: 20, height: 3)
+                        .foregroundStyle(color)
+                        .padding(.trailing, 6)
+                }
             }
             
             Toggle(description, isOn: $isOn)
@@ -27,5 +35,8 @@ struct MapLayerOptionCellView: View {
 }
 
 #Preview {
-    MapLayerOptionCellView(description: "Show Open Street Map", isOn: Binding.constant(true))
+    VStack {
+        MapLayerOptionCellView(isCircle: true, lineColor: Color.red, description: "Show Open Street Map", isOn: Binding.constant(true))
+        MapLayerOptionCellView(lineColor: Color.red, description: "Show Open Street Map", isOn: Binding.constant(true))
+    }
 }

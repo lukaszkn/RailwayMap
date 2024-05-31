@@ -68,4 +68,9 @@ extension Color {
     static let tracksSubways = Color.FlatColor.Red.Cinnabar
     static let tracksTramways = Color.FlatColor.Violet.BlueGem
     static let tracksDisused = Color.FlatColor.Yellow.Turbo
+    
+    static let stationRailway = Color.FlatColor.Red.Cinnabar
+    static let stationLightRailway = Color.FlatColor.Red.WellRead
+    static let stationSubway = Color.FlatColor.Violet.Wisteria
+    static let stationTram = Color.FlatColor.Orange.NeonCarrot
 }
