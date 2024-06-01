@@ -5,7 +5,7 @@
 //  Created by Lukasz on 27/05/2024.
 //
 
-import Foundation
+import SwiftUI
 import CoreLocation
 
 struct Station: Identifiable {
@@ -39,6 +39,19 @@ enum NodeType: Int {
     case subway = 1
     case tram = 2
     case lightRail = 3
+    
+    func typeColour() -> Color {
+        switch self {
+        case .station:
+            return Color.stationRailway
+        case .subway:
+            return Color.stationSubway
+        case .tram:
+            return Color.stationTram
+        case .lightRail:
+            return Color.stationLightRailway
+        }
+    }
     
     func typeString() -> String {
         switch self {

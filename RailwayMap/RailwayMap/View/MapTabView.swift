@@ -44,6 +44,23 @@ struct MapTabView: View {
                 }
                 
                 Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        viewModel.onLocationButtonTap()
+                    } label: {
+                        Image(systemName: "location")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .padding(12)
+                            .foregroundColor(.blue)
+                            .background(.white)
+                            .cornerRadius(10)
+                            .padding(6)
+                    }
+                }
             }
         }
         .JMModal(showModal: $showingAskPermissionsModal, for: [.location],

@@ -31,7 +31,15 @@ class MapAreaDetailsViewModel {
                    let name = feature.attribute(forKey: "name") as? String,
                    let sid = feature.attribute(forKey: "sid") as? Int64 {
                     
-                    let station = Station(id: sid, nodeType: NodeType(rawValue: nodeType)!, name: name, coordinate: feature.coordinate)
+                    var station = Station(id: sid, nodeType: NodeType(rawValue: nodeType)!, name: name, coordinate: feature.coordinate)
+                    
+                    if let colour = feature.attribute(forKey: "colour") as? String {
+                        station.colour = colour
+                    }
+                    
+                    if let line = feature.attribute(forKey: "line") as? String {
+                        station.line = line
+                    }
                     
                     let exists = stations.contains { $0.id == station.id }
                     if !exists {
@@ -51,6 +59,32 @@ class MapAreaDetailsViewModel {
                     
                     if let network = feature.attribute(forKey: "network") as? String {
                         track.network = network
+                    }
+                    
+                    if let wikipedia = feature.attribute(forKey: "wikipedia") as? String {
+                        track.wikipedia = wikipedia
+                    }
+
+                    let exists = tracks.contains { $0.name == track.name && $0.routeType == track.routeType && $0.network == track.network }
+                    if !exists {
+                        tracks.append(track)
+                    }
+                } else if let wayType = feature.attribute(forKey: "wt") as? Int {
+                    
+                    var track: Track
+                    
+                    let name = feature.attribute(forKey: "name") as? String
+                    let network = feature.attribute(forKey: "network") as? String
+                    
+                    if let name, let network {
+                        track = Track(routeType: RouteType(rawValue: wayType)!, name: name)
+                        track.network = network
+                    } else if let name {
+                        track = Track(routeType: RouteType(rawValue: wayType)!, name: name)
+                    } else if let network {
+                        track = Track(routeType: RouteType(rawValue: wayType)!, name: network)
+                    } else {
+                        continue
                     }
                     
                     if let wikipedia = feature.attribute(forKey: "wikipedia") as? String {

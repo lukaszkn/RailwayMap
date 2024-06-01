@@ -28,6 +28,7 @@ struct MapLibreView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         mapView.maximumZoomLevel = 18
         mapView.logoView.isHidden = true
+        mapView.attributionButtonPosition = .bottomLeft
         
 #if DEBUG
         mapView.allowsRotating = false
@@ -72,6 +73,11 @@ struct MapLibreView: UIViewRepresentable {
         let subwayStationLayer: MLNCircleStyleLayer
         let lightRailwayStationLayer: MLNCircleStyleLayer
         
+        let railwayStationNameLayer: MLNSymbolStyleLayer
+        let tramStopNameLayer: MLNSymbolStyleLayer
+        let subwayStationNameLayer: MLNSymbolStyleLayer
+        let lightRailwayStationNameLayer: MLNSymbolStyleLayer
+        
         var pannedToUserLocation = false
         
         init(viewModel: MapTabViewModel) {
@@ -83,7 +89,7 @@ struct MapLibreView: UIViewRepresentable {
                 .maximumZoomLevel: 16,
                 .tileSize: 256,
                 .attributionInfos: [
-                    MLNAttributionInfo(title: NSAttributedString(string: "© OpenStreetMap contributors."), url: URL(string: "https://openstreetmap.org"))
+                    MLNAttributionInfo(title: NSAttributedString(string: "© OpenStreetMap contributors"), url: URL(string: "https://openstreetmap.org"))
                 ]
             ])
             
@@ -192,6 +198,36 @@ struct MapLibreView: UIViewRepresentable {
             lightRailwayStationLayer.sourceLayerIdentifier = "light_railway_station"
             lightRailwayStationLayer.circleColor = NSExpression(forConstantValue: UIColor(Color.stationLightRailway))
             
+            // ---------------
+            
+            railwayStationNameLayer = MLNSymbolStyleLayer(identifier: "railway_station_name", source: railwaysSource)
+            railwayStationNameLayer.sourceLayerIdentifier = "railway_station_name"
+            railwayStationNameLayer.text = NSExpression(forKeyPath: "name")
+            railwayStationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
+            railwayStationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
+            railwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
+            
+            subwayStationNameLayer = MLNSymbolStyleLayer(identifier: "subway_station_name", source: railwaysSource)
+            subwayStationNameLayer.sourceLayerIdentifier = "subway_station_name"
+            subwayStationNameLayer.text = NSExpression(forKeyPath: "name")
+            subwayStationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
+            subwayStationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
+            subwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
+            
+            lightRailwayStationNameLayer = MLNSymbolStyleLayer(identifier: "light_railway_station_name", source: railwaysSource)
+            lightRailwayStationNameLayer.sourceLayerIdentifier = "light_railway_station_name"
+            lightRailwayStationNameLayer.text = NSExpression(forKeyPath: "name")
+            lightRailwayStationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
+            lightRailwayStationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
+            lightRailwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
+            
+            tramStopNameLayer = MLNSymbolStyleLayer(identifier: "tram_stop_name", source: railwaysSource)
+            tramStopNameLayer.sourceLayerIdentifier = "tram_stop_name"
+            tramStopNameLayer.text = NSExpression(forKeyPath: "name")
+            tramStopNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
+            tramStopNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
+            tramStopNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
+            
             super.init()
             
             self.mapSourceService.mapDelegate = self
@@ -199,6 +235,7 @@ struct MapLibreView: UIViewRepresentable {
         
         // add sources and layers after loading default style, mapView.style is nil prior to this
         func mapView(_ mapView: MLNMapView, didFinishLoading style: MLNStyle) {
+            print("mapView didFinishLoading")
             self.mapView = mapView
             
             mapView.style?.addSource(railwaysSource)
@@ -236,16 +273,10 @@ struct MapLibreView: UIViewRepresentable {
             mapView.style?.addLayer(lightRailwayStationLayer)
             
             // Stations/stops names
-            
-            
-            
-            let stationNameLayer = MLNSymbolStyleLayer(identifier: "railway_station_name", source: railwaysSource)
-            stationNameLayer.sourceLayerIdentifier = "railway_station_name"
-            stationNameLayer.text = NSExpression(forKeyPath: "name")
-            stationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
-            stationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
-            stationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
-            mapView.style?.addLayer(stationNameLayer)
+            mapView.style?.addLayer(railwayStationNameLayer)
+            mapView.style?.addLayer(tramStopNameLayer)
+            mapView.style?.addLayer(subwayStationNameLayer)
+            mapView.style?.addLayer(lightRailwayStationNameLayer)
             
 #if DEBUG
             //dbStats()
@@ -255,7 +286,7 @@ struct MapLibreView: UIViewRepresentable {
 #if DEBUG
         func dbStats() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                let features = self.railwaysSource.features(sourceLayerIdentifiers: [/*"railway_station",*/ "tram_stop", "subway_station", "light_railway_station"], predicate: nil)
+                let features = self.railwaysSource.features(sourceLayerIdentifiers: ["railway_station", "tram_stop", "subway_station", "light_railway_station", "tram_stop_name", "subway_station_name", "light_railway_station_name", "railway_station_name"], predicate: nil)
                 
                 var railwayStationCount = 0, tramStopCount = 0, subwayStationCount = 0, lightRailwayStationCount = 0
                 
@@ -324,6 +355,20 @@ struct MapLibreView: UIViewRepresentable {
                 
                 tracksDisusedLayerBackground.isVisible = viewModel.mapOptions.showDisused
                 tracksDisusedLayer.isVisible = viewModel.mapOptions.showDisused
+                
+                // stations/stops
+                
+                railwayStationLayer.isVisible = viewModel.mapOptions.showRailwayStations
+                railwayStationNameLayer.isVisible = viewModel.mapOptions.showRailwayStations
+                
+                tramStopLayer.isVisible = viewModel.mapOptions.showTramStops
+                tramStopNameLayer.isVisible = viewModel.mapOptions.showTramStops
+                
+                subwayStationLayer.isVisible = viewModel.mapOptions.showSubwayStations
+                subwayStationNameLayer.isVisible = viewModel.mapOptions.showSubwayStations
+                
+                lightRailwayStationLayer.isVisible = viewModel.mapOptions.showLightRailwayStations
+                lightRailwayStationNameLayer.isVisible = viewModel.mapOptions.showLightRailwayStations
             }
         }
         
@@ -340,6 +385,7 @@ struct MapLibreView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MLNMapView, didUpdate userLocation: MLNUserLocation?) {
+            print("mapView didUpdate")
             if pannedToUserLocation {
                 return
             }

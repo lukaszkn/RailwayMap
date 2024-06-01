@@ -19,6 +19,11 @@ struct MapAreaDetailsView: View {
                 Section("Stations/stops (\(viewModel.stations.count))") {
                     ForEach(viewModel.stations) { station in
                         HStack {
+                            Circle()
+                                .foregroundColor(station.nodeType.typeColour())
+                                .frame(width: 20, height: 10)
+                                .padding(.trailing, 6)
+                            
                             VStack(alignment: .leading, spacing: 3) {
                                 Text(station.name)
                                     .foregroundColor(.primary)
