@@ -16,9 +16,9 @@ class LocationService: NSObject {
     override init() {
         super.init()
         
-        locManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locManager.pausesLocationUpdatesAutomatically = true
-        locManager.distanceFilter = 5
+        locManager.distanceFilter = 10
         
         self.lastLocation = locManager.location
         
@@ -31,6 +31,7 @@ extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.count > 0 {
             self.lastLocation = locations[0]
+            NotificationCenter.default.post(name: .didUpdateLocation, object: self.lastLocation)
         }
     }
 }

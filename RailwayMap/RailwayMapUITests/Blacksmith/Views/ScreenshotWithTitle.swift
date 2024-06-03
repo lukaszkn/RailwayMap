@@ -24,15 +24,17 @@ public struct ScreenshotWithTitle: View, CapturingView {
         background: ImageBackground,
         exportSize: ExportSize,
         alignment: TitleAlignment = .titleAbove,
-        font: Font = .system(size: 50, weight: .regular, design: .rounded),
+        font: Font = .system(size: 70, weight: .regular, design: .rounded),
         foregroundColor: Color = .primary
     ) {
         self.title = title
         self.image = image
-        self.screenshotImageScale = exportSize == .iPhone_6_5_Inches ? 0.706
+        self.screenshotImageScale = exportSize == .iPhone_6_7_Inches ? 0.72
+        : exportSize == .iPhone_6_5_Inches ? 0.77 //0.706
                                     : exportSize == .iPadPro_12_9_Inches ? 0.755 : 1
         
-        self.frameImageScale = exportSize == .iPhone_6_5_Inches ? 0.715 * 1.17
+        self.frameImageScale = exportSize == .iPhone_6_7_Inches ? 0.715 * 1.17
+                               : exportSize == .iPhone_6_5_Inches ? 0.715 * 1.17
                                : exportSize == .iPadPro_12_9_Inches ? 0.715 * 1.17 : 1
         
         self.background = background
@@ -63,37 +65,47 @@ public struct ScreenshotWithTitle: View, CapturingView {
             }
             
             VStack {
-//                if case .titleAbove = alignment {
-//                    if self.title.count > 0 {
-//                        Text(title)
-//                            .font(font)
-//                            .padding(.top)
-//                            .foregroundColor(foregroundColor)
-//                        
-//                        Spacer()
-//                    }
-//                }
                 Spacer()
+                
+                if case .titleAbove = alignment {
+                    if self.title.count > 0 {
+                        VStack {
+                            Spacer()
+                            Text(title)
+                                .font(font)
+                                .padding(.top)
+                                .foregroundColor(foregroundColor)
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+                                
+                            Spacer()
+                        }
+                        .frame(height: 290)
+                        
+                        
+                    }
+                }
                 
                 ZStack {
                     image
                         .resizable()
-                        .scaleEffect(CGSize(width: screenshotImageScale, height: screenshotImageScale))
+                        
                         .cornerRadius(exportSize.cornerRadius)
-                        //.scaledToFit()
-                        //.padding()
+                        .scaledToFit()
+                        .scaleEffect(CGSize(width: screenshotImageScale, height: screenshotImageScale))
+                        .padding()
                     
                     if case .deviceFrame(_) = background {
 
                         if let backgroundImage = UIImage(named: exportSize == ExportSize.iPhone_6_7_Inches ? "frame_iPhone15ProMax"
-                                                      : exportSize == ExportSize.iPhone_6_5_Inches ? "frame_iPhone11ProMax"
-                                                      : exportSize == ExportSize.iPadPro_12_9_Inches ? "frame_iPadPro" : "",
-                                                      in: Bundle(for: RailwayMapUITests.self), compatibleWith: nil)
+                                                         : exportSize == ExportSize.iPhone_6_5_Inches ? "frame_iPhone11ProMax"
+                                                         : exportSize == ExportSize.iPadPro_12_9_Inches ? "frame_iPadPro" : "",
+                                                         in: Bundle(for: RailwayMapUITests.self), compatibleWith: nil)
                         {
                             Image(uiImage: backgroundImage)
                                 .resizable()
                                 .scaledToFit()
-                                .scaleEffect(CGSize(width: frameImageScale, height: frameImageScale))
+                                .scaleEffect(CGSize(width: frameImageScale, height: frameImageScale /* 0.955*/))
                         }
                     }
                 }
@@ -113,4 +125,11 @@ public struct ScreenshotWithTitle: View, CapturingView {
         }
         .frame(width: exportSize.size.width, height: exportSize.size.height)
     }
+}
+
+#Preview {
+    ScreenshotWithTitle(title: "Sample title",
+                        image: Image(uiImage: UIImage(named: "screenshot_pl0_iPhone11ProMax")!),
+                        background: .deviceFrame(Color.init(withHex: 0xF7F3E6)),
+                        exportSize: .iPhone_6_5_Inches)
 }

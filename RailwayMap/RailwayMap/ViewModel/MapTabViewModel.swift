@@ -28,10 +28,7 @@ class MapTabViewModel {
     }
     
     func onLocationButtonTap() {
-        let locationService = AppDelegate.instance.container.resolve(LocationService.self)!
-        if let lastLocation = locationService.lastLocation {
-            self.mapSourceService.mapDelegate?.flyToCoordinate(coordinate: lastLocation.coordinate)
-        }
+        self.mapSourceService.mapDelegate?.flyToCurrentLocation()
     }
 }
 

@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "17E1BDD2-9425-4A93-8046-DD8CE48088D6",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:RailwayMap.xcodeproj",
+      "identifier" : "B26134102BFB92B700E0233E",
+      "name" : "RailwayMap"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RailwayMap.xcodeproj",
+        "identifier" : "B26134202BFB92B800E0233E",
+        "name" : "RailwayMapTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:RailwayMap.xcodeproj",
+        "identifier" : "B261342A2BFB92B900E0233E",
+        "name" : "RailwayMapUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -107,6 +107,7 @@ struct MapLibreView: UIViewRepresentable {
             
             let lineWidth = 2
             let backgroundLineWidth = 5
+            let textOffsetY = 0.75
             
             // add layer representing railway tracks
             tracksRailwayLayer = MLNLineStyleLayer(identifier: "railway", source: railwaysSource)
@@ -205,28 +206,28 @@ struct MapLibreView: UIViewRepresentable {
             railwayStationNameLayer.text = NSExpression(forKeyPath: "name")
             railwayStationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
             railwayStationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
-            railwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
+            railwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: textOffsetY))
             
             subwayStationNameLayer = MLNSymbolStyleLayer(identifier: "subway_station_name", source: railwaysSource)
             subwayStationNameLayer.sourceLayerIdentifier = "subway_station_name"
             subwayStationNameLayer.text = NSExpression(forKeyPath: "name")
             subwayStationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
             subwayStationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
-            subwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
+            subwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: textOffsetY))
             
             lightRailwayStationNameLayer = MLNSymbolStyleLayer(identifier: "light_railway_station_name", source: railwaysSource)
             lightRailwayStationNameLayer.sourceLayerIdentifier = "light_railway_station_name"
             lightRailwayStationNameLayer.text = NSExpression(forKeyPath: "name")
             lightRailwayStationNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
             lightRailwayStationNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
-            lightRailwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
+            lightRailwayStationNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: textOffsetY))
             
             tramStopNameLayer = MLNSymbolStyleLayer(identifier: "tram_stop_name", source: railwaysSource)
             tramStopNameLayer.sourceLayerIdentifier = "tram_stop_name"
             tramStopNameLayer.text = NSExpression(forKeyPath: "name")
             tramStopNameLayer.textHaloColor = NSExpression(forConstantValue: UIColor.white)
             tramStopNameLayer.textHaloWidth = NSExpression(forConstantValue: 2)
-            tramStopNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: 0.7))
+            tramStopNameLayer.textOffset = NSExpression(forConstantValue: CGVector.init(dx: 0, dy: textOffsetY))
             
             super.init()
             
@@ -239,7 +240,6 @@ struct MapLibreView: UIViewRepresentable {
             self.mapView = mapView
             
             mapView.style?.addSource(railwaysSource)
-            
             
             updateLayers()
             
@@ -381,7 +381,13 @@ struct MapLibreView: UIViewRepresentable {
         }
         
         func flyToCoordinate(coordinate: CLLocationCoordinate2D) {
-            mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 25_000, pitch: 0, heading: 0))
+            mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 20_000, pitch: 0, heading: 0))
+        }
+        
+        func flyToCurrentLocation() {
+            if let coordinate = mapView?.userLocation?.coordinate {
+                mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 20_000, pitch: 0, heading: 0))
+            }
         }
         
         func mapView(_ mapView: MLNMapView, didUpdate userLocation: MLNUserLocation?) {

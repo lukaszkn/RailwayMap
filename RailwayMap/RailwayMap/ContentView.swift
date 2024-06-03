@@ -18,7 +18,7 @@ struct ContentView: View {
     
     var tabIndexHandler: Binding<Int> { Binding(
         get: { self.viewModel.tabSelection },
-        set: { self.viewModel.tabSelection = $0 }
+        set: { self.viewModel.setSelectedTab(tabIndex: $0) }
     )}
     
     var body: some View {

@@ -11,7 +11,10 @@ import Foundation
 class MainContentViewModel {
     var tabSelection = 0
     
+    var globalState: GlobalState
+    
     init() {
+        self.globalState = AppDelegate.instance.container.resolve(GlobalState.self)!
         NotificationCenter.default.addObserver(self, selector: #selector(mainTabIndexChangeRequest(notification:)), name: .mainTabIndexChangeRequest, object: nil)
     }
     
@@ -19,5 +22,10 @@ class MainContentViewModel {
         let tabIndex = notification.object as! Int
         
         self.tabSelection = tabIndex
+    }
+    
+    func setSelectedTab(tabIndex: Int) {
+        tabSelection = tabIndex
+        self.globalState.mainTabIndex = tabIndex
     }
 }

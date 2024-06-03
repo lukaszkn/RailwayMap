@@ -27,6 +27,7 @@ public extension XCTestCase {
 #elseif os(iOS)
     func createMarketing<V: View>(image: V, exportSize: ExportSize) -> XCTAttachment {
         let uiImage = image.takeScreenshot(origin: .zero, size: exportSize.size)
+//        let uiImage = image.saveToImage(size: exportSize.size)
         
         let attachment = XCTAttachment(image: uiImage)
         attachment.lifetime = .keepAlways
