@@ -2,73 +2,227 @@
   "sourceLanguage" : "en",
   "strings" : {
     "Allow to access your location to see which stations/stops you're closed to" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zezwól na dostęp do swojej lokalizacji, aby zobaczyć, do których stacji/przystanków jesteś blisko"
+          }
+        }
+      }
     },
     "Background layer" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warstwa tła"
+          }
+        }
+      }
     },
     "Disused" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieużywane"
+          }
+        }
+      }
     },
     "Explore" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odkryj"
+          }
+        }
+      }
     },
     "Explore nearby area" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poznaj pobliską okolicę"
+          }
+        }
+      }
     },
     "Light railway" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kolej lekka"
+          }
+        }
+      }
     },
     "Light railways" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koleje lekkie"
+          }
+        }
+      }
     },
     "Location" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokalizacja"
+          }
+        }
+      }
     },
     "Map" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mapa"
+          }
+        }
+      }
     },
     "Map options" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opcje mapy"
+          }
+        }
+      }
     },
     "Narrow gauge" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wąskotorówki"
+          }
+        }
+      }
     },
     "Open Street Map" : {
 
     },
     "Point details" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szczegóły punktu"
+          }
+        }
+      }
     },
     "Railway" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kolej"
+          }
+        }
+      }
     },
     "Railways" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koleje"
+          }
+        }
+      }
     },
     "Stations" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stacje"
+          }
+        }
+      }
     },
     "Stations/stops (%lld)" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stacje/przystanki (%lld)"
+          }
+        }
+      }
     },
     "Subway" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metro"
+          }
+        }
+      }
     },
     "Subways" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metro"
+          }
+        }
+      }
     },
     "Tracks" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tory"
+          }
+        }
+      }
     },
     "Tracks (%lld)" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tory (%lld)"
+          }
+        }
+      }
     },
     "Tram" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tramwaj"
+          }
+        }
+      }
     },
     "Tramways" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tramwaje"
+          }
+        }
+      }
     },
     "Wikipedia" : {
 

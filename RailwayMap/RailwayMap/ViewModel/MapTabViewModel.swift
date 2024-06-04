@@ -20,6 +20,13 @@ class MapTabViewModel {
     
     init() {
         self.mapSourceService = AppDelegate.instance.container.resolve(MapSourceService.self)!
+        
+        // load saved map options if present
+        if let archievedMapOptions = UserDefaults.standard.object(forKey: UserDefaultsKeys.mapOptions.rawValue) as? Data {
+            if let options = try? NSKeyedUnarchiver.unarchivedObject(ofClass: MapLayerOptions.self, from: archievedMapOptions) {
+                self.mapOptions = options
+            }
+        }
     }
     
     func onMapTap(features: [MLNFeature]) {
@@ -29,6 +36,18 @@ class MapTabViewModel {
     
     func onLocationButtonTap() {
         self.mapSourceService.mapDelegate?.flyToCurrentLocation()
+    }
+    
+    func onMapOptionsClose() {
+        // save map options
+        do {
+            let archievedMapOptions = try NSKeyedArchiver.archivedData(withRootObject: self.mapOptions, requiringSecureCoding: false)
+            UserDefaults.standard.set(archievedMapOptions, forKey: UserDefaultsKeys.mapOptions.rawValue)
+            UserDefaults.standard.synchronize()
+        } catch {
+            print("save map options error \(error)")
+        }
+        self.mapSourceService.mapDelegate?.updateLayers()
     }
 }
 

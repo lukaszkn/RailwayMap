@@ -79,7 +79,7 @@ struct MapTabView: View {
             }
         }
         .sheet(isPresented: $viewModel.showingMapOptions, onDismiss: {
-            viewModel.mapSourceService.mapDelegate?.updateLayers()
+            viewModel.onMapOptionsClose()
         }, content: {
             MapLayersOptionsView(options: $viewModel.mapOptions)
         })
