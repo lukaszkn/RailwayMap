@@ -32,6 +32,7 @@ struct ContentView: View {
             ExploreTabView()
                 .tabItem {
                     Label("Explore", systemImage: "scope")
+                        .accessibilityIdentifier("explore_tab")
                 }
                 .tag(TabIndex.explore.rawValue)
         }

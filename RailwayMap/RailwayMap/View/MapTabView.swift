@@ -59,6 +59,7 @@ struct MapTabView: View {
                             .background(.white)
                             .cornerRadius(10)
                             .padding(6)
+                            .accessibilityIdentifier("current_location")
                     }
                 }
             }

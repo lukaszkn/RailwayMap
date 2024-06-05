@@ -40,12 +40,13 @@
 		B26134462BFBA1C500E0233E /* MapLibre in Frameworks */ = {isa = PBXBuildFile; productRef = B26134452BFBA1C500E0233E /* MapLibre */; };
 		B26134482BFBA46E00E0233E /* MapLibreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26134472BFBA46E00E0233E /* MapLibreView.swift */; };
 		B290F7E72C0BCA2A002D86FB /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA04C32C02869B0036CBB0 /* Color+Extensions.swift */; };
-		B2C0591D2BFBE1D4004326F0 /* poland.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = B2C0591C2BFBE1D4004326F0 /* poland.mbtiles */; };
 		B2C059212C00C2EC004326F0 /* MapTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C059202C00C2EC004326F0 /* MapTabViewModel.swift */; };
 		B2C059242C011490004326F0 /* MapLayerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C059232C011490004326F0 /* MapLayerOptions.swift */; };
 		B2C059262C011532004326F0 /* MapLayersOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C059252C011532004326F0 /* MapLayersOptionsView.swift */; };
 		B2C059282C011579004326F0 /* MapLayerOptionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C059272C011579004326F0 /* MapLayerOptionCellView.swift */; };
 		B2D262D92C0F0659004B67A5 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D262D82C0F0659004B67A5 /* UserDefaults+Extensions.swift */; };
+		B2D262DC2C0F5BE5004B67A5 /* DebugAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D262DB2C0F5BE5004B67A5 /* DebugAction.swift */; };
+		B2D262DD2C0FA1F9004B67A5 /* DebugAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D262DB2C0F5BE5004B67A5 /* DebugAction.swift */; };
 		B2FA04B32C023A700036CBB0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B2FA04B22C023A700036CBB0 /* Localizable.xcstrings */; };
 		B2FA04B52C023AAB0036CBB0 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B2FA04B42C023AAB0036CBB0 /* InfoPlist.xcstrings */; };
 		B2FA04B72C023BB40036CBB0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B2FA04B62C023BB40036CBB0 /* PrivacyInfo.xcprivacy */; };
@@ -109,13 +110,13 @@
 		B26134402BFB9F9000E0233E /* MapTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabView.swift; sourceTree = "<group>"; };
 		B26134422BFBA07800E0233E /* world-railways.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "world-railways.mbtiles"; sourceTree = "<group>"; };
 		B26134472BFBA46E00E0233E /* MapLibreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLibreView.swift; sourceTree = "<group>"; };
-		B2C0591C2BFBE1D4004326F0 /* poland.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = poland.mbtiles; sourceTree = "<group>"; };
 		B2C0591E2BFE939F004326F0 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		B2C059202C00C2EC004326F0 /* MapTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabViewModel.swift; sourceTree = "<group>"; };
 		B2C059232C011490004326F0 /* MapLayerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayerOptions.swift; sourceTree = "<group>"; };
 		B2C059252C011532004326F0 /* MapLayersOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayersOptionsView.swift; sourceTree = "<group>"; };
 		B2C059272C011579004326F0 /* MapLayerOptionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayerOptionCellView.swift; sourceTree = "<group>"; };
 		B2D262D82C0F0659004B67A5 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		B2D262DB2C0F5BE5004B67A5 /* DebugAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugAction.swift; sourceTree = "<group>"; };
 		B2FA04B22C023A700036CBB0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B2FA04B42C023AAB0036CBB0 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		B2FA04B62C023BB40036CBB0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -213,6 +214,7 @@
 				B26134182BFB92B800E0233E /* Assets.xcassets */,
 				B26134162BFB92B700E0233E /* ContentView.swift */,
 				B261343E2BFB934600E0233E /* Data */,
+				B2D262DA2C0F5A51004B67A5 /* Debug */,
 				B2FA04C22C0286380036CBB0 /* Extensions */,
 				B211DA242C04CB2000ABD0F3 /* Info.plist */,
 				B2C059222C0113FF004326F0 /* Model */,
@@ -255,7 +257,6 @@
 		B261343E2BFB934600E0233E /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B2C0591C2BFBE1D4004326F0 /* poland.mbtiles */,
 				B26134422BFBA07800E0233E /* world-railways.mbtiles */,
 			);
 			path = Data;
@@ -294,6 +295,14 @@
 				B211DA2D2C0500E800ABD0F3 /* Track.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B2D262DA2C0F5A51004B67A5 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				B2D262DB2C0F5BE5004B67A5 /* DebugAction.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		B2FA04B12C0230280036CBB0 /* Other */ = {
@@ -450,7 +459,6 @@
 				B2FA04B32C023A700036CBB0 /* Localizable.xcstrings in Resources */,
 				B261341C2BFB92B800E0233E /* Preview Assets.xcassets in Resources */,
 				B2FA04BB2C023CD80036CBB0 /* RailwayMap.png in Resources */,
-				B2C0591D2BFBE1D4004326F0 /* poland.mbtiles in Resources */,
 				B26134192BFB92B800E0233E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +502,7 @@
 				B211DA262C04D18900ABD0F3 /* LocationService.swift in Sources */,
 				B2C059242C011490004326F0 /* MapLayerOptions.swift in Sources */,
 				B25C917E2C07803300EC0278 /* Double+Extensions.swift in Sources */,
+				B2D262DC2C0F5BE5004B67A5 /* DebugAction.swift in Sources */,
 				B25C917C2C0736FA00EC0278 /* MapSourceService.swift in Sources */,
 				B211DA2E2C0500E800ABD0F3 /* Track.swift in Sources */,
 				B244E9F22C0DE03300D3BA9A /* GlobalState.swift in Sources */,
@@ -521,6 +530,7 @@
 				B244E9FF2C0E254700D3BA9A /* RailwayMapUITests.swift in Sources */,
 				B25C91722C06940300EC0278 /* ExportSize.swift in Sources */,
 				B244EA012C0E255900D3BA9A /* ExportMarketingImageToURL.swift in Sources */,
+				B2D262DD2C0FA1F9004B67A5 /* DebugAction.swift in Sources */,
 				B290F7E72C0BCA2A002D86FB /* Color+Extensions.swift in Sources */,
 				B26134322BFB92B900E0233E /* RailwayMapUITestsLaunchTests.swift in Sources */,
 				B25C91752C06940300EC0278 /* ViewToUIImage.swift in Sources */,

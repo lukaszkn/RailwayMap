@@ -99,12 +99,12 @@ class MapAreaDetailsViewModel {
             }
         }
         
-        stations.sort {
-            $0.name < $1.name
+        stations = stations.sorted { (lhs: Station, rhs: Station) -> Bool in
+            return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == .orderedAscending
         }
         
-        tracks.sort {
-            $0.name < $1.name
+        tracks = tracks.sorted { (lhs: Track, rhs: Track) -> Bool in
+            return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == .orderedAscending
         }
     }
 }

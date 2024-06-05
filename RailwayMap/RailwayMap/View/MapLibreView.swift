@@ -96,7 +96,7 @@ struct MapLibreView: UIViewRepresentable {
             osmRasterStyleLayer = MLNRasterStyleLayer(identifier: "osm", source: osmTileSource)
             osmRasterStyleLayer.minimumRasterBrightness = NSExpression(forConstantValue: 0.25)
             
-            let mbURL = "mbtiles:///\(Bundle.main.url(forResource: "poland", withExtension: "mbtiles")!.path())"
+            let mbURL = "mbtiles:///\(Bundle.main.url(forResource: "world-railways", withExtension: "mbtiles")!.path())"
             railwaysSource = MLNVectorTileSource(identifier: "railway", tileURLTemplates: [mbURL], options: [
                 .minimumZoomLevel: 4,
                 .maximumZoomLevel: 12,
@@ -381,12 +381,12 @@ struct MapLibreView: UIViewRepresentable {
         }
         
         func flyToCoordinate(coordinate: CLLocationCoordinate2D) {
-            mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 20_000, pitch: 0, heading: 0))
+            mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 10_000, pitch: 0, heading: 0))
         }
         
         func flyToCurrentLocation() {
             if let coordinate = mapView?.userLocation?.coordinate {
-                mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 20_000, pitch: 0, heading: 0))
+                mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 10_000, pitch: 0, heading: 0))
             }
         }
         

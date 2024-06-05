@@ -30,7 +30,7 @@ public struct ScreenshotWithTitle: View, CapturingView {
         self.title = title
         self.image = image
         self.screenshotImageScale = exportSize == .iPhone_6_7_Inches ? 0.72
-        : exportSize == .iPhone_6_5_Inches ? 0.77 //0.706
+        : exportSize == .iPhone_6_5_Inches ? 0.80
                                     : exportSize == .iPadPro_12_9_Inches ? 0.755 : 1
         
         self.frameImageScale = exportSize == .iPhone_6_7_Inches ? 0.715 * 1.17
@@ -73,16 +73,14 @@ public struct ScreenshotWithTitle: View, CapturingView {
                             Spacer()
                             Text(title)
                                 .font(font)
-                                .padding(.top)
+                                .padding(.top, 35)
                                 .foregroundColor(foregroundColor)
                                 .multilineTextAlignment(.center)
                                 .fixedSize(horizontal: false, vertical: true)
                                 
                             Spacer()
                         }
-                        .frame(height: 290)
-                        
-                        
+                        .frame(width: exportSize.size.width, height: 290)
                     }
                 }
                 
