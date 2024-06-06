@@ -41,7 +41,7 @@ class MapAreaDetailsViewModel {
                         station.line = line
                     }
                     
-                    let exists = stations.contains { $0.id == station.id }
+                    let exists = stations.contains { $0.name == station.name && $0.secondaryDescriptionLine == station.secondaryDescriptionLine }
                     if !exists {
                         stations.append(station)
                     }

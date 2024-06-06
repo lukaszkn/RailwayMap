@@ -50,7 +50,7 @@ public enum ExportSize: Equatable {
                 return 24
                 
             case .iPadPro_12_9_Inches:
-                return 40
+                return 10
                 
             case .mac:
                 return 8

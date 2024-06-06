@@ -30,12 +30,14 @@ public struct ScreenshotWithTitle: View, CapturingView {
         self.title = title
         self.image = image
         self.screenshotImageScale = exportSize == .iPhone_6_7_Inches ? 0.72
-        : exportSize == .iPhone_6_5_Inches ? 0.80
-                                    : exportSize == .iPadPro_12_9_Inches ? 0.755 : 1
+                                    : exportSize == .iPhone_6_5_Inches ? 0.80
+                                    : exportSize == .iPadPro_12_9_Inches ? 0.785
+                                    : 1
         
         self.frameImageScale = exportSize == .iPhone_6_7_Inches ? 0.715 * 1.17
                                : exportSize == .iPhone_6_5_Inches ? 0.715 * 1.17
-                               : exportSize == .iPadPro_12_9_Inches ? 0.715 * 1.17 : 1
+                               : exportSize == .iPadPro_12_9_Inches ? 0.715 * 1.17
+                               : 1
         
         self.background = background
         self.exportSize = exportSize

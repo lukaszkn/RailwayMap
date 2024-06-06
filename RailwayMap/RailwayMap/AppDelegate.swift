@@ -38,12 +38,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             mapOptions.showNarrowGauge = false
             mapOptions.showTramways = true
             mapOptions.showLightRailways = false
-            mapOptions.showDisused = false
+            mapOptions.showDisused = true
             
             mapOptions.showRailwayStations = false
             mapOptions.showSubwayStations = false
             mapOptions.showTramStops = true
             mapOptions.showLightRailwayStations = false
+            
             do {
                 let archievedMapOptions = try NSKeyedArchiver.archivedData(withRootObject: mapOptions, requiringSecureCoding: false)
                 UserDefaults.standard.set(archievedMapOptions, forKey: UserDefaultsKeys.mapOptions.rawValue)
@@ -51,6 +52,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             } catch {
                 print("AppDelegate save map options error \(error)")
             }
+        }
+        
+        MapLayerOptions.flyToAltitude = 10_000.0
+        if CommandLine.arguments.contains(CommandLineDebugAction.mapFlyToAltitude20.rawValue) {
+            MapLayerOptions.flyToAltitude = 30_000.0
         }
 #endif
         

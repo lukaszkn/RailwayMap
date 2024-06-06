@@ -34,6 +34,7 @@ function node_function(node)
 			AttributeNumeric("nt", 2)
 			SetNameAttributes()
 			AttributeNumeric("sid", Id())
+			SetOtherAttributes()
 			
 			if name ~= "" then
 				Layer("tram_stop_name", false)
@@ -42,10 +43,13 @@ function node_function(node)
 				AttributeNumeric("sid", Id())
 			end
 		elseif railway == "station" and station == "subway" then
+			-- colour=blue https://www.openstreetmap.org/node/3390290598
+			-- line=District;Piccadilly https://www.openstreetmap.org/node/5183843299
 			Layer("subway_station", false)
 			AttributeNumeric("nt", 1)
 			SetNameAttributes()
 			AttributeNumeric("sid", Id())
+			SetOtherAttributes()
 			
 			if name ~= "" then
 				Layer("subway_station_name", false)
@@ -58,6 +62,7 @@ function node_function(node)
 			AttributeNumeric("nt", 3)
 			SetNameAttributes()
 			AttributeNumeric("sid", Id())
+			SetOtherAttributes()
 			
 			if name ~= "" then
 				Layer("light_railway_station_name", false)
@@ -70,6 +75,7 @@ function node_function(node)
 			AttributeNumeric("nt", 0)
 			SetNameAttributes()
 			AttributeNumeric("sid", Id())
+			SetOtherAttributes()
 			
 			if name ~= "" then
 				Layer("railway_station_name", false)
@@ -81,7 +87,6 @@ function node_function(node)
 			return
 		end
 		
-		-- Attribute("sid", Id())
 		
 	end
 	
@@ -138,6 +143,8 @@ end
 function way_function()
 	-- railway=narrow_gauge https://www.openstreetmap.org/way/167839649
 	-- railway=disused https://www.openstreetmap.org/way/25182390
+	-- railway=rail usage=branch https://www.openstreetmap.org/way/37655368
+	-- railway=rail usage=branch https://www.openstreetmap.org/way/35081829
 	
 	local railway = Find("railway")
 	if railway ~= "" then
@@ -155,6 +162,10 @@ function way_function()
 			if wikipedia ~= "" then
 				Attribute("wikipedia", wikipedia)
 			end
+		elseif railway == "rail" and Find("name") ~= "" and Find("usage") == "branch" then
+			Layer("railway", false)
+			AttributeNumeric("wt", 0)
+			SetNameAttributes()
 		else
 			return
 		end
@@ -217,7 +228,7 @@ function relation_scan_function()
 	if Find("type")=="route" then
 		local route = Find("route") 
 	
-		if route=="tram" or Find("railway")=="narrow_gauge" or route=="railway" or route=="tracks" or route=="light_rail" or route=="subway" then
+		if route=="train" or route=="tram" or Find("railway")=="narrow_gauge" or route=="railway" or route=="tracks" or route=="light_rail" or route=="subway" then
 			Accept()
 		end
 	end
@@ -229,6 +240,7 @@ function relation_function()
 	
 	-- type=route route=railway https://www.openstreetmap.org/relation/176889
 	-- type=route route=tracks https://www.openstreetmap.org/relation/2884237
+	-- type=route route=train https://www.openstreetmap.org/relation/373628
 	
 	-- type=route route=light_rail https://www.openstreetmap.org/relation/7772556
 	-- type=route route=subway https://www.openstreetmap.org/relation/4236801
@@ -261,7 +273,7 @@ function relation_function()
 		elseif route=="subway" then
 			Layer("subway", false)
 			AttributeNumeric("rt", 1)
-		elseif route=="railway" or (route=="tracks" and Find("usage")=="main") then
+		elseif route=="railway" or route=="train" or (route=="tracks" and Find("usage")=="main") then
 			Layer("railway", false)
 			AttributeNumeric("rt", 0)
 		else
@@ -280,6 +292,18 @@ function relation_function()
 			Attribute("colour", colour)
 		end
 	
+	end
+end
+
+function SetOtherAttributes()
+	local colour = Find("colour")
+	if colour ~= "" then
+		Attribute("colour", colour)
+	end
+	
+	local line = Find("line")
+	if line ~= "" then
+		Attribute("line", line)
 	end
 end
 

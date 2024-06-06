@@ -110,9 +110,9 @@ struct MapAreaDetailsView: View {
     imielin.coordinate = CLLocationCoordinate2DMake(52.1493000, 21.0461062)
     imielin.attributes = ["sid": 3390290598, "name": "Imielin", "nt": 1, "colour": "blue"]
     
-    var features: [MLNFeature] = [przeworsk, kolejPrzeworska, kolej91, actonTown, imielin]
+    let features: [MLNFeature] = [przeworsk, kolejPrzeworska, kolej91, actonTown, imielin]
     
-    var binding = Binding {
+    let binding = Binding {
         return features
     } set: { _ in
     }

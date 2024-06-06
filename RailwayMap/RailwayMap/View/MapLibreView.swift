@@ -381,12 +381,12 @@ struct MapLibreView: UIViewRepresentable {
         }
         
         func flyToCoordinate(coordinate: CLLocationCoordinate2D) {
-            mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 10_000, pitch: 0, heading: 0))
+            mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: MapLayerOptions.flyToAltitude, pitch: 0, heading: 0))
         }
         
         func flyToCurrentLocation() {
             if let coordinate = mapView?.userLocation?.coordinate {
-                mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: 10_000, pitch: 0, heading: 0))
+                mapView?.fly(to: MLNMapCamera(lookingAtCenter: coordinate, altitude: MapLayerOptions.flyToAltitude, pitch: 0, heading: 0))
             }
         }
         

@@ -9,4 +9,5 @@ enum CommandLineDebugAction: String {
     case setDefaultMapOptions = "setDefaultMapOptions"
     case mapOptionsWithOSM = "mapOptionsWithOSM"
     case mapOptionsTramWithOSM = "mapOptionsTramWithOSM"
+    case mapFlyToAltitude20 = "mapFlyToAltitude20"
 }

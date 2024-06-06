@@ -61,4 +61,6 @@ class MapLayerOptions: NSObject, NSCoding, NSSecureCoding {
     var showSubwayStations = true
     var showTramStops = true
     var showLightRailwayStations = true
+    
+    static var flyToAltitude = 10_000.0
 }
