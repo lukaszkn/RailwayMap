@@ -686,7 +686,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RailwayMap/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Railway map";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
@@ -722,7 +722,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RailwayMap/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Railway map";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow to access your location to see which stations/stops you're closed to";
