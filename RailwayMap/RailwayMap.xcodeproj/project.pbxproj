@@ -47,6 +47,7 @@
 		B2D262D92C0F0659004B67A5 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D262D82C0F0659004B67A5 /* UserDefaults+Extensions.swift */; };
 		B2D262DC2C0F5BE5004B67A5 /* DebugAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D262DB2C0F5BE5004B67A5 /* DebugAction.swift */; };
 		B2D262DD2C0FA1F9004B67A5 /* DebugAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D262DB2C0F5BE5004B67A5 /* DebugAction.swift */; };
+		B2E184C02C20448A00E456DF /* poland.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = B2E184BF2C20448A00E456DF /* poland.mbtiles */; };
 		B2FA04B32C023A700036CBB0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B2FA04B22C023A700036CBB0 /* Localizable.xcstrings */; };
 		B2FA04B52C023AAB0036CBB0 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B2FA04B42C023AAB0036CBB0 /* InfoPlist.xcstrings */; };
 		B2FA04B72C023BB40036CBB0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B2FA04B62C023BB40036CBB0 /* PrivacyInfo.xcprivacy */; };
@@ -117,6 +118,7 @@
 		B2C059272C011579004326F0 /* MapLayerOptionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayerOptionCellView.swift; sourceTree = "<group>"; };
 		B2D262D82C0F0659004B67A5 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		B2D262DB2C0F5BE5004B67A5 /* DebugAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugAction.swift; sourceTree = "<group>"; };
+		B2E184BF2C20448A00E456DF /* poland.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = poland.mbtiles; sourceTree = "<group>"; };
 		B2FA04B22C023A700036CBB0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B2FA04B42C023AAB0036CBB0 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		B2FA04B62C023BB40036CBB0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		B261343E2BFB934600E0233E /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B2E184BF2C20448A00E456DF /* poland.mbtiles */,
 				B26134422BFBA07800E0233E /* world-railways.mbtiles */,
 			);
 			path = Data;
@@ -455,6 +458,7 @@
 				B2FA04B52C023AAB0036CBB0 /* InfoPlist.xcstrings in Resources */,
 				B2FA04B92C023C180036CBB0 /* LaunchScreen.storyboard in Resources */,
 				B2FA04B72C023BB40036CBB0 /* PrivacyInfo.xcprivacy in Resources */,
+				B2E184C02C20448A00E456DF /* poland.mbtiles in Resources */,
 				B26134432BFBA07800E0233E /* world-railways.mbtiles in Resources */,
 				B2FA04B32C023A700036CBB0 /* Localizable.xcstrings in Resources */,
 				B261341C2BFB92B800E0233E /* Preview Assets.xcassets in Resources */,

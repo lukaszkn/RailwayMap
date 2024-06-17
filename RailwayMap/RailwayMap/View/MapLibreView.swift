@@ -95,8 +95,13 @@ struct MapLibreView: UIViewRepresentable {
             
             osmRasterStyleLayer = MLNRasterStyleLayer(identifier: "osm", source: osmTileSource)
             osmRasterStyleLayer.minimumRasterBrightness = NSExpression(forConstantValue: 0.25)
-            
+
+#if DEBUG
+            let mbURL = "mbtiles:///\(Bundle.main.url(forResource: "poland", withExtension: "mbtiles")!.path())"
+#else
             let mbURL = "mbtiles:///\(Bundle.main.url(forResource: "world-railways", withExtension: "mbtiles")!.path())"
+#endif
+            
             railwaysSource = MLNVectorTileSource(identifier: "railway", tileURLTemplates: [mbURL], options: [
                 .minimumZoomLevel: 4,
                 .maximumZoomLevel: 12,
